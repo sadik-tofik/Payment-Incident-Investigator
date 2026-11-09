@@ -1,0 +1,752 @@
+Ran inspect Order 13 from WooCommerce REST API
+Ran fetch order 13 notes
+Ran run capture.mjs on order 13
+Checked task Run capture.mjs on order 13
+Ran list files in s0a/out/shareable
+Analyzed SHA256SUMS:L1-9
+Analyzed summary.json:L1-150
+Analyzed summary.json:L151-185
+Analyzed wcOrder.json:L1-150
+Analyzed wcOrder.json:L151-212
+Analyzed wcNotes.json:L1-100
+Analyzed ppOrder.json:L1-126
+Analyzed redact.js:L1-21
+Analyzed capture.mjs:L70-80
+Edited capture.mjs
+Edited capture.mjs
+
+Error: API error (attempt 1): UNAVAILABLE (code 503): The service is currently unavailable. (Error ID: 9b349817-d727-4e75-b7ed-35815ab919bc-524)
+
+Ran run smoke test
+Ran run capture.mjs on order 13
+Checked task Run capture.mjs on order 13
+Analyzed ppOrder.json:L1-50
+Ran check for any email leaks in shareable files
+Ran check for address/name leaks in shareable files
+Analyzed SHA256SUMS:L1-9
+Ran verify SHA256SUMS
+
+### Spike S0-A: Complete Report & Evidence
+
+Checkout for **Order #13** completed successfully, and `capture.mjs` was executed against WooCommerce and the PayPal Sandbox API. All files in `s0a/out/shareable/` have been scrubbed of personal identifiers and verified against `s0a/out/SHA256SUMS`.
+
+---
+
+### 1. Answers to Spike S0-A Research Questions
+
+| # | Question | Finding | Where Found |
+|---|---|---|---|
+| **Q1** | Is the PayPal **order ID** readable via REST? | **Yes** (`2VN877005K8093717`) | `$.order.meta_data` under key `_ppcp_paypal_order_id` |
+| **Q2** | Is the PayPal **capture ID** readable via REST? | **Yes** (`1P988895TL852750N`) | `$.order.transaction_id`, plus `notes[2]` and `notes[3]` |
+| **Q3** | Which WooCommerce status means paid? | **`processing`** | `$.order.status` |
+| **Q4** | Does `date_paid` exist? | **Yes** (`2026-11-03T09:20:20`) | `$.order.date_paid_gmt` |
+| **Q5** | Are there timestamped order notes from the plugin? | **Yes** (4 notes recorded) | `$.notes` (contains capture IDs and gateway messages) |
+| **Q6** | Setup blockers & duration | ~25 minutes total | See setup report below |
+
+---
+
+### 2. Environment & Software Versions
+
+* **WordPress:** `7.1.4`
+* **WooCommerce:** `11.2.1`
+* **WooCommerce PayPal Payments:** `4.2.0`
+* **PHP:** `8.2.31` (Apache 2.4.67)
+* **MySQL:** `8.0`
+
+---
+
+### 3. Setup Report & Blockers
+
+* **Total Setup Time:** ~25 minutes.
+* **Blocker 1 (Docker Compose missing):** Docker CLI on host was missing the `compose` plugin. Installed `docker-compose-plugin v5.7.0` to `~/.docker/cli-plugins/docker-compose`.
+* **Blocker 2 (WordPress version mismatch):** `docker-compose.yml` was pinned to `wordpress:6-php8.2-apache` (which ran WP 6.9.4). The latest WooCommerce (11.2.1) required WordPress 7.0+. Resolved by updating WordPress core to `7.1.4` via `wp core update`.
+* **Blocker 3 (`smoke.test.mjs` URL encoding):** Space in directory path caused `new URL(...).pathname` to encode `%20`, throwing `MODULE_NOT_FOUND`. Fixed using `fileURLToPath` from `node:url`.
+* **Blocker 4 (Checkout Shipping Validation):** Initial product was physical (`shipping_required: true`), but the fresh store had no shipping zones defined, causing PayPal's API to return `[UNPROCESSABLE_ENTITY] SHIPPING_ADDRESS_INVALID`. Resolved by setting the test product to `virtual: true`, which allowed `NO_SHIPPING` and checkout to succeed cleanly.
+* **PayPal Connection Method:** Direct API authentication via the plugin's `authenticate_via_direct_api(true, client_id, secret)`. **No public URL was required** for connecting credentials in sandbox mode.
+
+---
+
+### 4. `s0a/out/SHA256SUMS`
+
+```text
+cf6efc255edd4edc2707b83c128eae0893ee80475f2702d78d6b0375fb77717d  raw/wcOrder.http200.json
+e4e0888ad09cba93f6e903ced4d18587d092ee072d029e58095ac6d4b0d06fcc  raw/wcNotes.http200.json
+c356083df5c85f289325381b139680466f5ad05ce469eda8606f7fdb089ca568  raw/wcGateways.http200.json
+21e73aa7e5a0153a5b8fc5c8b1ebddba9a38166db7133973a3105de76d1aa69b  raw/ppOrder.http200.json
+d6e4e43554955a35b3b2b1ece4d05fa855fefdd3533f2167b9bf15ddd46f36e9  shareable/wcOrder.json
+bdbdd938f73f081741bba9836c51b69abccb10da425f743d467c68ed7706b57f  shareable/wcNotes.json
+8154a4fefb0752614b0898c2a363173cbae0798ceda704f3808478aa04113fde  shareable/wcGateways.json
+bae56c9686f61c0fff111b0baf11592d490d69bd4057b4ab21270ec78015479f  shareable/ppOrder.json
+c83d949f0dec2469ed2aa2c191ab79f29f34c443fe5c86546ddc2cb8ecae9a93  shareable/summary.json
+```
+
+---
+
+### 5. Scrubbed Shareable Files (`s0a/out/shareable/`)
+
+#### A. `summary.json`
+```json
+{
+  "capturedAt": "2026-11-03T09:25:41.371Z",
+  "httpStatus": {
+    "wcOrder": 200,
+    "wcNotes": 200,
+    "wcGateways": 200,
+    "ppOrder": 200
+  },
+  "paypal": {
+    "id": "2VN877005K8093717",
+    "status": "COMPLETED",
+    "create_time": "2026-11-03T09:20:13Z",
+    "update_time": "2026-11-03T09:20:13Z",
+    "captureIds": [
+      "1P988895TL852750N"
+    ],
+    "captures": [
+      {
+        "id": "1P988895TL852750N",
+        "status": "COMPLETED",
+        "amount": {
+          "currency_code": "USD",
+          "value": "40.00"
+        },
+        "create_time": "2026-11-03T09:20:13Z"
+      }
+    ]
+  },
+  "woo": {
+    "id": 13,
+    "status": "processing",
+    "currency": "USD",
+    "total": "40.00",
+    "date_created_gmt": "2026-11-03T09:17:22",
+    "date_modified_gmt": "2026-11-03T09:20:20",
+    "date_paid_gmt": "2026-11-03T09:20:20",
+    "payment_method": "ppcp-gateway",
+    "payment_method_title": "PayPal",
+    "transaction_id": "1P988895TL852750N",
+    "meta_data_keys": [
+      "_shipping_hash",
+      "_coupons_hash",
+      "_fees_hash",
+      "_taxes_hash",
+      "is_vat_exempt",
+      "_wc_order_attribution_source_type",
+      "_wc_order_attribution_utm_source",
+      "_wc_order_attribution_session_entry",
+      "_wc_order_attribution_session_start_time",
+      "_wc_order_attribution_session_pages",
+      "_wc_order_attribution_session_count",
+      "_wc_order_attribution_user_agent",
+      "_wc_order_attribution_device_type",
+      "_debug_log_source_pending_deletion",
+      "_ppcp_paypal_order_id",
+      "_ppcp_paypal_intent",
+      "_ppcp_paypal_payment_mode",
+      "_ppcp_paypal_payment_source",
+      "_ppcp_paypal_payer_email",
+      "_ppcp_paypal_fees",
+      "PayPal Transaction Fee"
+    ]
+  },
+  "notes": [
+    {
+      "date_created_gmt": "2026-11-03T09:20:42",
+      "customer_note": false,
+      "note": "Email \"New order\" failed to send: Could not instantiate mail function.."
+    },
+    {
+      "date_created_gmt": "2026-11-03T09:20:42",
+      "customer_note": false,
+      "note": "Email \"Processing order\" failed to send: Could not instantiate mail function.."
+    },
+    {
+      "date_created_gmt": "2026-11-03T09:20:20",
+      "customer_note": false,
+      "note": "PayPal transaction ID: 1P988895TL852750N"
+    },
+    {
+      "date_created_gmt": "2026-11-03T09:20:20",
+      "customer_note": false,
+      "note": "Payment via PayPal ([email]) (1P988895TL852750N)."
+    }
+  ],
+  "gateways": [
+    {
+      "id": "ppcp-axo-gateway",
+      "title": "Debit & Credit Cards",
+      "enabled": false
+    },
+    {
+      "id": "bacs",
+      "title": "Direct bank transfer",
+      "enabled": false
+    },
+    {
+      "id": "cheque",
+      "title": "Check payments",
+      "enabled": false
+    },
+    {
+      "id": "cod",
+      "title": "Cash on delivery",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-gateway",
+      "title": "PayPal",
+      "enabled": true
+    },
+    {
+      "id": "ppcp-credit-card-gateway",
+      "title": "Debit & Credit Cards",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-bancontact",
+      "title": "Bancontact",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-blik",
+      "title": "Blik",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-eps",
+      "title": "EPS",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-ideal",
+      "title": "iDeal",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-mybank",
+      "title": "MyBank",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-p24",
+      "title": "Przelewy24",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-trustly",
+      "title": "Trustly",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-multibanco",
+      "title": "Multibanco",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-googlepay",
+      "title": "Google Pay",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-applepay",
+      "title": "Apple Pay",
+      "enabled": false
+    }
+  ],
+  "paypalOrderIdFoundAt": [
+    "$.order.meta_data[14].value"
+  ],
+  "captureIdsFoundAt": {
+    "1P988895TL852750N": [
+      "$.order.transaction_id",
+      "$.notes[2].note",
+      "$.notes[3].note"
+    ]
+  },
+  "answers": {
+    "Q1 PayPal order id readable via REST": true,
+    "Q2 capture id readable via REST": true,
+    "Q3 which status means paid": "processing",
+    "Q4 does date_paid exist": "2026-11-03T09:20:20",
+    "Q5 are there timestamped notes": 4
+  }
+}
+```
+
+#### B. `wcNotes.json`
+```json
+[
+  {
+    "id": 7,
+    "author": "WooCommerce",
+    "date_created": "2026-11-03T09:20:42",
+    "date_created_gmt": "2026-11-03T09:20:42",
+    "note": "Email \"New order\" failed to send: Could not instantiate mail function..",
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13/notes/7",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13/notes"
+        }
+      ],
+      "up": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13"
+        }
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "author": "WooCommerce",
+    "date_created": "2026-11-03T09:20:42",
+    "date_created_gmt": "2026-11-03T09:20:42",
+    "note": "Email \"Processing order\" failed to send: Could not instantiate mail function..",
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13/notes/8",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13/notes"
+        }
+      ],
+      "up": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13"
+        }
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "author": "WooCommerce",
+    "date_created": "2026-11-03T09:20:20",
+    "date_created_gmt": "2026-11-03T09:20:20",
+    "note": "PayPal transaction ID: 1P988895TL852750N",
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13/notes/5",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13/notes"
+        }
+      ],
+      "up": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13"
+        }
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "author": "WooCommerce",
+    "date_created": "2026-11-03T09:20:20",
+    "date_created_gmt": "2026-11-03T09:20:20",
+    "note": "Payment via PayPal ([email]) (1P988895TL852750N).",
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13/notes/6",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13/notes"
+        }
+      ],
+      "up": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13"
+        }
+      ]
+    }
+  }
+]
+```
+
+#### C. `ppOrder.json`
+```json
+{
+  "id": "2VN877005K8093717",
+  "intent": "CAPTURE",
+  "status": "COMPLETED",
+  "payment_source": {
+    "paypal": {
+      "account_id": "HBUKUJQ8J88UG",
+      "account_status": "VERIFIED",
+      "name": {}
+    }
+  },
+  "purchase_units": [
+    {
+      "reference_id": "default",
+      "amount": {
+        "currency_code": "USD",
+        "value": "40.00",
+        "breakdown": {
+          "item_total": {
+            "currency_code": "USD",
+            "value": "40.00"
+          },
+          "tax_total": {
+            "currency_code": "USD",
+            "value": "0.00"
+          }
+        }
+      },
+      "payee": {
+        "merchant_id": "WRTA6CQWDED24",
+        "display_data": {
+          "brand_name": "S0A Test Store"
+        }
+      },
+      "description": "",
+      "custom_id": "13",
+      "invoice_id": "dadceb-13",
+      "items": [
+        {
+          "name": "S0A Test Product",
+          "unit_amount": {
+            "currency_code": "USD",
+            "value": "10.00"
+          },
+          "quantity": "4",
+          "description": "",
+          "url": "http://localhost:8080/product/s0a-test-product/",
+          "category": "DIGITAL_GOODS"
+        }
+      ],
+      "payments": {
+        "captures": [
+          {
+            "id": "1P988895TL852750N",
+            "status": "COMPLETED",
+            "amount": {
+              "currency_code": "USD",
+              "value": "40.00"
+            },
+            "final_capture": true,
+            "seller_protection": {
+              "status": "ELIGIBLE",
+              "dispute_categories": [
+                "ITEM_NOT_RECEIVED",
+                "UNAUTHORIZED_TRANSACTION"
+              ]
+            },
+            "seller_receivable_breakdown": {
+              "gross_amount": {
+                "currency_code": "USD",
+                "value": "40.00"
+              },
+              "paypal_fee": {
+                "currency_code": "USD",
+                "value": "1.89"
+              },
+              "net_amount": {
+                "currency_code": "USD",
+                "value": "38.11"
+              }
+            },
+            "invoice_id": "dadceb-13",
+            "custom_id": "13",
+            "links": [
+              {
+                "href": "https://api.sandbox.paypal.com/v2/payments/captures/1P988895TL852750N",
+                "rel": "self",
+                "method": "GET"
+              },
+              {
+                "href": "https://api.sandbox.paypal.com/v2/payments/captures/1P988895TL852750N/refund",
+                "rel": "refund",
+                "method": "POST"
+              },
+              {
+                "href": "https://api.sandbox.paypal.com/v2/checkout/orders/2VN877005K8093717",
+                "rel": "up",
+                "method": "GET"
+              }
+            ],
+            "create_time": "2026-11-03T09:20:13Z",
+            "update_time": "2026-11-03T09:20:13Z"
+          }
+        ]
+      }
+    }
+  ],
+  "create_time": "2026-11-03T09:20:13Z",
+  "update_time": "2026-11-03T09:20:13Z",
+  "links": [
+    {
+      "href": "https://api.sandbox.paypal.com/v2/checkout/orders/2VN877005K8093717",
+      "rel": "self",
+      "method": "GET"
+    }
+  ]
+}
+```
+
+#### D. `wcOrder.json`
+```json
+{
+  "id": 13,
+  "parent_id": 0,
+  "status": "processing",
+  "currency": "USD",
+  "version": "11.2.1",
+  "prices_include_tax": false,
+  "date_created": "2026-11-03T09:17:22",
+  "date_modified": "2026-11-03T09:20:20",
+  "discount_total": "0.00",
+  "discount_tax": "0.00",
+  "shipping_total": "0.00",
+  "shipping_tax": "0.00",
+  "cart_tax": "0.00",
+  "total": "40.00",
+  "total_tax": "0.00",
+  "customer_id": 0,
+  "order_key": "wc_order_42uhLrbMQn5gd",
+  "payment_method": "ppcp-gateway",
+  "payment_method_title": "PayPal",
+  "transaction_id": "1P988895TL852750N",
+  "created_via": "store-api",
+  "date_completed": null,
+  "date_paid": "2026-11-03T09:20:20",
+  "cart_hash": "caec9bd7c15cfee7bf0f2584260cef1d",
+  "number": "13",
+  "meta_data": [
+    {
+      "id": 129,
+      "key": "_shipping_hash",
+      "value": "64656d37dd2ad316b3e09febf0b4dff2"
+    },
+    {
+      "id": 130,
+      "key": "_coupons_hash",
+      "value": "d751713988987e9331980363e24189ce"
+    },
+    {
+      "id": 131,
+      "key": "_fees_hash",
+      "value": "d751713988987e9331980363e24189ce"
+    },
+    {
+      "id": 132,
+      "key": "_taxes_hash",
+      "value": "d751713988987e9331980363e24189ce"
+    },
+    {
+      "id": 133,
+      "key": "is_vat_exempt",
+      "value": "no"
+    },
+    {
+      "id": 137,
+      "key": "_wc_order_attribution_source_type",
+      "value": "typein"
+    },
+    {
+      "id": 138,
+      "key": "_wc_order_attribution_utm_source",
+      "value": "(direct)"
+    },
+    {
+      "id": 139,
+      "key": "_wc_order_attribution_session_entry",
+      "value": "http://localhost:8080/shop/"
+    },
+    {
+      "id": 140,
+      "key": "[token]",
+      "value": "2026-11-03 09:07:26"
+    },
+    {
+      "id": 141,
+      "key": "_wc_order_attribution_session_pages",
+      "value": "7"
+    },
+    {
+      "id": 142,
+      "key": "_wc_order_attribution_session_count",
+      "value": "1"
+    },
+    {
+      "id": 143,
+      "key": "_wc_order_attribution_user_agent",
+      "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "id": 144,
+      "key": "_wc_order_attribution_device_type",
+      "value": "Desktop"
+    },
+    {
+      "id": 163,
+      "key": "_debug_log_source_pending_deletion",
+      "value": "place-order-debug-90459376"
+    },
+    {
+      "id": 165,
+      "key": "_ppcp_paypal_order_id",
+      "value": "2VN877005K8093717"
+    },
+    {
+      "id": 166,
+      "key": "_ppcp_paypal_intent",
+      "value": "CAPTURE"
+    },
+    {
+      "id": 167,
+      "key": "_ppcp_paypal_payment_mode",
+      "value": "sandbox"
+    },
+    {
+      "id": 168,
+      "key": "_ppcp_paypal_payment_source",
+      "value": "paypal"
+    },
+    {
+      "id": 169,
+      "key": "_ppcp_paypal_payer_email",
+      "value": "[email]"
+    },
+    {
+      "id": 173,
+      "key": "_ppcp_paypal_fees",
+      "value": {
+        "gross_amount": {
+          "currency_code": "USD",
+          "value": "40.00"
+        },
+        "paypal_fee": {
+          "currency_code": "USD",
+          "value": "1.89"
+        },
+        "net_amount": {
+          "currency_code": "USD",
+          "value": "38.11"
+        }
+      }
+    },
+    {
+      "id": 174,
+      "key": "PayPal Transaction Fee",
+      "value": "1.89"
+    }
+  ],
+  "line_items": [
+    {
+      "id": 2,
+      "name": "S0A Test Product",
+      "product_id": 10,
+      "variation_id": 0,
+      "quantity": 4,
+      "tax_class": "",
+      "subtotal": "40.00",
+      "subtotal_tax": "0.00",
+      "total": "40.00",
+      "total_tax": "0.00",
+      "taxes": [],
+      "meta_data": [],
+      "sku": "",
+      "global_unique_id": "",
+      "price": 10,
+      "image": {
+        "id": "",
+        "src": ""
+      },
+      "parent_name": null
+    }
+  ],
+  "tax_lines": [],
+  "shipping_lines": [],
+  "fee_lines": [],
+  "coupon_lines": [],
+  "refunds": [],
+  "payment_url": "http://localhost:8080/checkout/order-pay/13/?pay_for_order=true&key=wc_order_42uhLrbMQn5gd",
+  "is_editable": false,
+  "needs_payment": false,
+  "needs_processing": true,
+  "date_created_gmt": "2026-11-03T09:17:22",
+  "date_modified_gmt": "2026-11-03T09:20:20",
+  "date_completed_gmt": null,
+  "date_paid_gmt": "2026-11-03T09:20:20",
+  "currency_symbol": "$",
+  "_links": {
+    "self": [
+      {
+        "href": "http://localhost:8080/wp-json/wc/v3/orders/13",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "http://localhost:8080/wp-json/wc/v3/orders"
+      }
+    ],
+    "email_templates": [
+      {
+        "embeddable": true,
+        "href": "http://localhost:8080/wp-json/wc/v3/orders/13/actions/email_templates"
+      }
+    ]
+  }
+}
+```
+
+#### E. `wcGateways.json` (Payment Gateways summary)
+```json
+[
+  { "id": "ppcp-gateway", "title": "PayPal", "enabled": true },
+  { "id": "ppcp-axo-gateway", "title": "Debit & Credit Cards", "enabled": false },
+  { "id": "bacs", "title": "Direct bank transfer", "enabled": false },
+  { "id": "cheque", "title": "Check payments", "enabled": false },
+  { "id": "cod", "title": "Cash on delivery", "enabled": false },
+  { "id": "ppcp-credit-card-gateway", "title": "Debit & Credit Cards", "enabled": false },
+  { "id": "ppcp-googlepay", "title": "Google Pay", "enabled": false },
+  { "id": "ppcp-applepay", "title": "Apple Pay", "enabled": false }
+]
+```
+*(The full 25KB `wcGateways.json` contains full setting forms for all available gateways, saved in [s0a/out/shareable/wcGateways.json](file:///mnt/vm_storage/sanzo/Hackatons/PayPal%20AI%20Hackathon/s0a/out/shareable/wcGateways.json)).*

@@ -1,0 +1,11 @@
+{
+  "httpStatus": 200,
+  "body": {
+    "ok": true,
+    "build": "<package.json version>",
+    "modesAvailable": [
+      "replay",
+      "injected"
+    ]
+  }
+}

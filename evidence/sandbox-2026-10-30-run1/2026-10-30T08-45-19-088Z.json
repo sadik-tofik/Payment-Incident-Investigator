@@ -1,0 +1,42 @@
+{
+  "mock": false,
+  "results": [
+    {
+      "name": "scenario1",
+      "pass": false,
+      "findings": [
+        "TypeError: fetch failed"
+      ],
+      "evidence": {}
+    }
+  ],
+  "calls": [
+    {
+      "at": "2026-10-30T08:14:36.117Z",
+      "method": "POST",
+      "path": "/v2/checkout/orders",
+      "requestId": "284aba2a-31f9-4835-8442-abbb6a8d2bba",
+      "status": 200,
+      "debugId": "f746963a0a822",
+      "ms": 749
+    },
+    {
+      "at": "2026-10-30T08:15:10.279Z",
+      "method": "GET",
+      "path": "/v2/checkout/orders/5LV75741Y0902515G",
+      "requestId": null,
+      "status": 200,
+      "debugId": "ca528f874a806",
+      "ms": 1315
+    },
+    {
+      "at": "2026-10-30T08:20:10.109Z",
+      "method": "GET",
+      "path": "/v2/checkout/orders/5LV75741Y0902515G",
+      "requestId": null,
+      "status": 200,
+      "debugId": "ca528ffc6afaf",
+      "ms": 1085
+    }
+  ]
+}

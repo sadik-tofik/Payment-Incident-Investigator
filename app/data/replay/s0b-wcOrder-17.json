@@ -1,0 +1,212 @@
+{
+  "id": 17,
+  "parent_id": 0,
+  "status": "processing",
+  "currency": "USD",
+  "version": "11.2.1",
+  "prices_include_tax": false,
+  "date_created": "2026-11-03T12:13:30",
+  "date_modified": "2026-11-03T12:14:12",
+  "discount_total": "0.00",
+  "discount_tax": "0.00",
+  "shipping_total": "0.00",
+  "shipping_tax": "0.00",
+  "cart_tax": "0.00",
+  "total": "60.00",
+  "total_tax": "0.00",
+  "customer_id": 0,
+  "order_key": "wc_order_wzvSEvgKl1UcH",
+  "payment_method": "ppcp-gateway",
+  "payment_method_title": "PayPal",
+  "transaction_id": "5CK36668YX478504T",
+  "created_via": "store-api",
+  "date_completed": null,
+  "date_paid": "2026-11-03T12:14:10",
+  "cart_hash": "b2348fcc35d0ccdf91d9d2d2e0d7e616",
+  "number": "17",
+  "meta_data": [
+    {
+      "id": 442,
+      "key": "_shipping_hash",
+      "value": "64656d37dd2ad316b3e09febf0b4dff2"
+    },
+    {
+      "id": 443,
+      "key": "_coupons_hash",
+      "value": "d751713988987e9331980363e24189ce"
+    },
+    {
+      "id": 444,
+      "key": "_fees_hash",
+      "value": "d751713988987e9331980363e24189ce"
+    },
+    {
+      "id": 445,
+      "key": "_taxes_hash",
+      "value": "d751713988987e9331980363e24189ce"
+    },
+    {
+      "id": 446,
+      "key": "is_vat_exempt",
+      "value": "no"
+    },
+    {
+      "id": 450,
+      "key": "_wc_order_attribution_source_type",
+      "value": "typein"
+    },
+    {
+      "id": 451,
+      "key": "_wc_order_attribution_utm_source",
+      "value": "(direct)"
+    },
+    {
+      "id": 452,
+      "key": "_wc_order_attribution_session_entry",
+      "value": "http://localhost:8080/shop/"
+    },
+    {
+      "id": 453,
+      "key": "_wc_order_attribution_session_start_time",
+      "value": "2026-11-03 09:07:26"
+    },
+    {
+      "id": 454,
+      "key": "_wc_order_attribution_session_pages",
+      "value": "15"
+    },
+    {
+      "id": 455,
+      "key": "_wc_order_attribution_session_count",
+      "value": "2"
+    },
+    {
+      "id": 456,
+      "key": "_wc_order_attribution_user_agent",
+      "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "id": 457,
+      "key": "_wc_order_attribution_device_type",
+      "value": "Desktop"
+    },
+    {
+      "id": 465,
+      "key": "_debug_log_source_pending_deletion",
+      "value": "place-order-debug-427bdd2c"
+    },
+    {
+      "id": 467,
+      "key": "_ppcp_paypal_order_id",
+      "value": "6B462964L3390141D"
+    },
+    {
+      "id": 468,
+      "key": "_ppcp_paypal_intent",
+      "value": "CAPTURE"
+    },
+    {
+      "id": 469,
+      "key": "_ppcp_paypal_payment_mode",
+      "value": "sandbox"
+    },
+    {
+      "id": 470,
+      "key": "_ppcp_paypal_payment_source",
+      "value": "paypal"
+    },
+    {
+      "id": 471,
+      "key": "_ppcp_paypal_payer_email",
+      "value": "[email]"
+    },
+    {
+      "id": 475,
+      "key": "_ppcp_paypal_fees",
+      "value": {
+        "gross_amount": {
+          "currency_code": "USD",
+          "value": "60.00"
+        },
+        "paypal_fee": {
+          "currency_code": "USD",
+          "value": "2.58"
+        },
+        "net_amount": {
+          "currency_code": "USD",
+          "value": "57.42"
+        }
+      }
+    },
+    {
+      "id": 476,
+      "key": "PayPal Transaction Fee",
+      "value": "2.58"
+    }
+  ],
+  "line_items": [
+    {
+      "id": 6,
+      "name": "S0A Test Product",
+      "product_id": 10,
+      "variation_id": 0,
+      "quantity": 6,
+      "tax_class": "",
+      "subtotal": "60.00",
+      "subtotal_tax": "0.00",
+      "total": "60.00",
+      "total_tax": "0.00",
+      "taxes": [],
+      "meta_data": [],
+      "sku": "",
+      "global_unique_id": "",
+      "price": 10,
+      "image": {
+        "id": "",
+        "src": ""
+      },
+      "parent_name": null
+    }
+  ],
+  "tax_lines": [],
+  "shipping_lines": [],
+  "fee_lines": [],
+  "coupon_lines": [],
+  "refunds": [],
+  "payment_url": "http://localhost:8080/checkout/order-pay/17/?pay_for_order=true&key=wc_order_wzvSEvgKl1UcH",
+  "is_editable": false,
+  "needs_payment": false,
+  "needs_processing": true,
+  "date_created_gmt": "2026-11-03T12:13:30",
+  "date_modified_gmt": "2026-11-03T12:14:12",
+  "date_completed_gmt": null,
+  "date_paid_gmt": "2026-11-03T12:14:10",
+  "currency_symbol": "$",
+  "_links": {
+    "self": [
+      {
+        "href": "http://localhost:8080/wp-json/wc/v3/orders/17",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "http://localhost:8080/wp-json/wc/v3/orders"
+      }
+    ],
+    "email_templates": [
+      {
+        "embeddable": true,
+        "href": "http://localhost:8080/wp-json/wc/v3/orders/17/actions/email_templates"
+      }
+    ]
+  }
+}

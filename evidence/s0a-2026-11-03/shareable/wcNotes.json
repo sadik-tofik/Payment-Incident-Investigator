@@ -1,0 +1,122 @@
+[
+  {
+    "id": 7,
+    "author": "WooCommerce",
+    "date_created": "2026-11-03T09:20:42",
+    "date_created_gmt": "2026-11-03T09:20:42",
+    "note": "Email \"New order\" failed to send: Could not instantiate mail function..",
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13/notes/7",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13/notes"
+        }
+      ],
+      "up": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13"
+        }
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "author": "WooCommerce",
+    "date_created": "2026-11-03T09:20:42",
+    "date_created_gmt": "2026-11-03T09:20:42",
+    "note": "Email \"Processing order\" failed to send: Could not instantiate mail function..",
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13/notes/8",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13/notes"
+        }
+      ],
+      "up": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13"
+        }
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "author": "WooCommerce",
+    "date_created": "2026-11-03T09:20:20",
+    "date_created_gmt": "2026-11-03T09:20:20",
+    "note": "PayPal transaction ID: 1P988895TL852750N",
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13/notes/5",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13/notes"
+        }
+      ],
+      "up": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13"
+        }
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "author": "WooCommerce",
+    "date_created": "2026-11-03T09:20:20",
+    "date_created_gmt": "2026-11-03T09:20:20",
+    "note": "Payment via PayPal ([email]) (1P988895TL852750N).",
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13/notes/6",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13/notes"
+        }
+      ],
+      "up": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/orders/13"
+        }
+      ]
+    }
+  }
+]

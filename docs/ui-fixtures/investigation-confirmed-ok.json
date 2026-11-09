@@ -1,0 +1,286 @@
+{
+  "httpStatus": 200,
+  "body": {
+    "id": "inv_EXAMPLE",
+    "createdAt": "2026-11-04T00:00:00.000Z",
+    "source": {
+      "mode": "replay",
+      "label": "recorded real sandbox capture"
+    },
+    "input": {
+      "paypalOrderId": "6B462964L3390141D",
+      "localOrderId": null
+    },
+    "identity": {
+      "state": "confirmed",
+      "basis": "both systems name each other",
+      "reason": null,
+      "requiredNotice": null
+    },
+    "needs": {},
+    "systems": {
+      "paypal": {
+        "status": "COMPLETED",
+        "retrievedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "timeKind": "observed",
+        "amount": "60.00",
+        "currency": "USD",
+        "captures": [
+          {
+            "id": "5CK36668YX478504T",
+            "status": "COMPLETED",
+            "createTime": "2026-11-03T12:14:08Z"
+          }
+        ]
+      },
+      "store": {
+        "localOrderId": "17",
+        "status": "processing",
+        "normalizedStatus": "paid",
+        "retrievedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "timeKind": "observed",
+        "amount": "60.00",
+        "currency": "USD",
+        "holdsPayPalOrderId": true,
+        "pluginVersion": "4.2.0",
+        "pluginVersionSource": "operator_declared"
+      }
+    },
+    "decision": {
+      "decisionStatus": "rule_matched",
+      "verdict": "ok",
+      "ruleRow": 6,
+      "reason": "captured and paid locally",
+      "finding": null,
+      "divergencePoint": null,
+      "stateFingerprint": "a701e0a1bf7e78ed99d6804c6dfa782a617528d8426295662083d9b8ce5d62e9"
+    },
+    "evidence": [
+      {
+        "id": "EV-0001",
+        "source": "paypal",
+        "field": "paypalOrderId",
+        "value": "6B462964L3390141D",
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "rawHash": "94ef533fe3ce813f6c013fcbc5ac7b49628681f5a123efba07639ac300a221e8"
+      },
+      {
+        "id": "EV-0002",
+        "source": "paypal",
+        "field": "purchaseUnitCount",
+        "value": 1,
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "rawHash": "94ef533fe3ce813f6c013fcbc5ac7b49628681f5a123efba07639ac300a221e8"
+      },
+      {
+        "id": "EV-0003",
+        "source": "paypal",
+        "field": "customId",
+        "value": "17",
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "rawHash": "94ef533fe3ce813f6c013fcbc5ac7b49628681f5a123efba07639ac300a221e8"
+      },
+      {
+        "id": "EV-0004",
+        "source": "paypal",
+        "field": "invoiceId",
+        "value": "dadceb-17",
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "rawHash": "94ef533fe3ce813f6c013fcbc5ac7b49628681f5a123efba07639ac300a221e8"
+      },
+      {
+        "id": "EV-0005",
+        "source": "paypal",
+        "field": "unitAmount",
+        "value": "60.00:USD",
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "rawHash": "94ef533fe3ce813f6c013fcbc5ac7b49628681f5a123efba07639ac300a221e8"
+      },
+      {
+        "id": "EV-0006",
+        "source": "store",
+        "field": "localOrderId",
+        "value": "17",
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "rawHash": "fcddf4575661dfab29c104b5a8708ec2353c0b4a23bb45eb65a926636c406fc7"
+      },
+      {
+        "id": "EV-0007",
+        "source": "store",
+        "field": "paypalOrderIdRef",
+        "value": "6B462964L3390141D",
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "rawHash": "fcddf4575661dfab29c104b5a8708ec2353c0b4a23bb45eb65a926636c406fc7"
+      },
+      {
+        "id": "EV-0008",
+        "source": "store",
+        "field": "paypalOrderIdRefCount",
+        "value": 1,
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "rawHash": "fcddf4575661dfab29c104b5a8708ec2353c0b4a23bb45eb65a926636c406fc7"
+      },
+      {
+        "id": "EV-0009",
+        "source": "store",
+        "field": "plugin",
+        "value": "woocommerce-paypal-payments@4.2.0",
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "rawHash": "fcddf4575661dfab29c104b5a8708ec2353c0b4a23bb45eb65a926636c406fc7"
+      },
+      {
+        "id": "EV-0010",
+        "source": "paypal",
+        "field": "orderStatus",
+        "value": "COMPLETED",
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "rawHash": "94ef533fe3ce813f6c013fcbc5ac7b49628681f5a123efba07639ac300a221e8"
+      },
+      {
+        "id": "EV-0011",
+        "source": "paypal",
+        "field": "captureCount",
+        "value": 1,
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "rawHash": "94ef533fe3ce813f6c013fcbc5ac7b49628681f5a123efba07639ac300a221e8"
+      },
+      {
+        "id": "EV-0012",
+        "source": "paypal",
+        "field": "captures[0]",
+        "value": "5CK36668YX478504T:COMPLETED:60.00:USD",
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": "2026-11-03T12:14:08Z",
+        "rawHash": "94ef533fe3ce813f6c013fcbc5ac7b49628681f5a123efba07639ac300a221e8"
+      },
+      {
+        "id": "EV-0013",
+        "source": "store",
+        "field": "normalizedStatus",
+        "value": "paid",
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "rawHash": "fcddf4575661dfab29c104b5a8708ec2353c0b4a23bb45eb65a926636c406fc7"
+      },
+      {
+        "id": "EV-0014",
+        "source": "store",
+        "field": "rawStatus",
+        "value": "processing",
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "rawHash": "fcddf4575661dfab29c104b5a8708ec2353c0b4a23bb45eb65a926636c406fc7"
+      },
+      {
+        "id": "EV-0015",
+        "source": "store",
+        "field": "total",
+        "value": "60.00:USD",
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "rawHash": "fcddf4575661dfab29c104b5a8708ec2353c0b4a23bb45eb65a926636c406fc7"
+      }
+    ],
+    "actions": {
+      "safe": [],
+      "forbidden": [
+        {
+          "id": "refund",
+          "reason": "Refund workflows are out of scope (X4).",
+          "rule": "SAF-2"
+        },
+        {
+          "id": "auto_capture",
+          "reason": "Capture is never automatic (X2, X3).",
+          "rule": "SAF-1"
+        },
+        {
+          "id": "auto_repair",
+          "reason": "No repair is applied without a human approval (BR-05).",
+          "rule": "SAF-6"
+        },
+        {
+          "id": "capture",
+          "reason": "Capture is only ever allowed for approved_not_captured with the local order not cancelled.",
+          "rule": "SAF-1"
+        },
+        {
+          "id": "mark_local_paid",
+          "reason": "Only safe for captured_local_unpaid, and only when Tier 2 is built and enabled.",
+          "rule": "SAF-3"
+        }
+      ]
+    },
+    "integrity": {
+      "hashSpec": "sha256 of canonical-json-v1 (sorted keys, no whitespace)",
+      "paypal": "redacted copy of PayPal's response (not PayPal's original bytes)",
+      "store": "allow-listed LocalFacts object (not the original WooCommerce response)",
+      "establishesAuthenticity": false,
+      "note": "A hash identifies the stored copy. It does not prove PayPal or the store said it."
+    },
+    "explanation": {
+      "kind": "template",
+      "text": "PayPal shows the capture as completed and the store shows the order as paid.",
+      "statements": [
+        {
+          "text": "PayPal shows the capture as completed and the store shows the order as paid.",
+          "evidenceIds": [
+            "EV-0001",
+            "EV-0002",
+            "EV-0003",
+            "EV-0004",
+            "EV-0005",
+            "EV-0006",
+            "EV-0007",
+            "EV-0008",
+            "EV-0009",
+            "EV-0010",
+            "EV-0011",
+            "EV-0012",
+            "EV-0013",
+            "EV-0014",
+            "EV-0015"
+          ]
+        }
+      ],
+      "citedEvidence": [
+        "EV-0001",
+        "EV-0002",
+        "EV-0003",
+        "EV-0004",
+        "EV-0005",
+        "EV-0006",
+        "EV-0007",
+        "EV-0008",
+        "EV-0009",
+        "EV-0010",
+        "EV-0011",
+        "EV-0012",
+        "EV-0013",
+        "EV-0014",
+        "EV-0015"
+      ],
+      "aiStatus": "not_configured",
+      "aiRejected": false
+    },
+    "limits": [
+      "Recorded real sandbox capture: one plugin version (4.2.0), one interruption method, virtual product, USD.",
+      "Plugin version is operator-declared, not read from the store.",
+      "Retrieval time is the recording time, not now."
+    ],
+    "auditId": "EXAMPLE"
+  }
+}

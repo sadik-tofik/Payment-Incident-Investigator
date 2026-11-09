@@ -1,0 +1,117 @@
+{
+  "id": "2VN877005K8093717",
+  "intent": "CAPTURE",
+  "status": "COMPLETED",
+  "payment_source": {
+    "paypal": {
+      "account_id": "HBUKUJQ8J88UG",
+      "account_status": "VERIFIED",
+      "name": {}
+    }
+  },
+  "purchase_units": [
+    {
+      "reference_id": "default",
+      "amount": {
+        "currency_code": "USD",
+        "value": "40.00",
+        "breakdown": {
+          "item_total": {
+            "currency_code": "USD",
+            "value": "40.00"
+          },
+          "tax_total": {
+            "currency_code": "USD",
+            "value": "0.00"
+          }
+        }
+      },
+      "payee": {
+        "merchant_id": "WRTA6CQWDED24",
+        "display_data": {
+          "brand_name": "S0A Test Store"
+        }
+      },
+      "description": "",
+      "custom_id": "13",
+      "invoice_id": "dadceb-13",
+      "items": [
+        {
+          "name": "S0A Test Product",
+          "unit_amount": {
+            "currency_code": "USD",
+            "value": "10.00"
+          },
+          "quantity": "4",
+          "description": "",
+          "url": "http://localhost:8080/product/s0a-test-product/",
+          "category": "DIGITAL_GOODS"
+        }
+      ],
+      "payments": {
+        "captures": [
+          {
+            "id": "1P988895TL852750N",
+            "status": "COMPLETED",
+            "amount": {
+              "currency_code": "USD",
+              "value": "40.00"
+            },
+            "final_capture": true,
+            "seller_protection": {
+              "status": "ELIGIBLE",
+              "dispute_categories": [
+                "ITEM_NOT_RECEIVED",
+                "UNAUTHORIZED_TRANSACTION"
+              ]
+            },
+            "seller_receivable_breakdown": {
+              "gross_amount": {
+                "currency_code": "USD",
+                "value": "40.00"
+              },
+              "paypal_fee": {
+                "currency_code": "USD",
+                "value": "1.89"
+              },
+              "net_amount": {
+                "currency_code": "USD",
+                "value": "38.11"
+              }
+            },
+            "invoice_id": "dadceb-13",
+            "custom_id": "13",
+            "links": [
+              {
+                "href": "https://api.sandbox.paypal.com/v2/payments/captures/1P988895TL852750N",
+                "rel": "self",
+                "method": "GET"
+              },
+              {
+                "href": "https://api.sandbox.paypal.com/v2/payments/captures/1P988895TL852750N/refund",
+                "rel": "refund",
+                "method": "POST"
+              },
+              {
+                "href": "https://api.sandbox.paypal.com/v2/checkout/orders/2VN877005K8093717",
+                "rel": "up",
+                "method": "GET"
+              }
+            ],
+            "create_time": "2026-11-03T09:20:13Z",
+            "update_time": "2026-11-03T09:20:13Z"
+          }
+        ]
+      }
+    }
+  ],
+  "create_time": "2026-11-03T09:20:13Z",
+  "update_time": "2026-11-03T09:20:13Z",
+  "links": [
+    {
+      "href": "https://api.sandbox.paypal.com/v2/checkout/orders/2VN877005K8093717",
+      "rel": "self",
+      "method": "GET"
+    }
+  ]
+}

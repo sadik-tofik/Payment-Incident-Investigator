@@ -1,0 +1,91 @@
+{
+  "mock": false,
+  "results": [
+    {
+      "name": "scenario2_captured_local_unpaid",
+      "pass": true,
+      "findings": [
+        "Engine verdict: captured_local_unpaid; safe actions: mark_local_paid; forbidden: capture",
+        "Capture retry with same key: HTTP 201 (same capture)",
+        "Capture retry with NEW key: HTTP 201 ",
+        "No second capture was created."
+      ],
+      "evidence": {
+        "orderId": "2GD52701974434709",
+        "firstCapture": {
+          "httpStatus": 201,
+          "status": "COMPLETED",
+          "captureId": "70M65111GE664273M",
+          "debugId": "f785177fa18ab"
+        },
+        "verdict": {
+          "incident": "captured_local_unpaid",
+          "reason": "Money was captured but the local order is not marked paid.",
+          "safeActions": [
+            "mark_local_paid"
+          ],
+          "forbiddenActions": [
+            "capture"
+          ]
+        },
+        "retrySameKey": {
+          "httpStatus": 201,
+          "captureId": "70M65111GE664273M",
+          "issue": null
+        },
+        "retryNewKey": {
+          "httpStatus": 201,
+          "captureId": "70M65111GE664273M",
+          "issue": null
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "at": "2026-10-30T08:11:46.026Z",
+      "method": "POST",
+      "path": "/v2/checkout/orders",
+      "requestId": "51a87895-f769-42ba-badb-0d10e3207374",
+      "status": 200,
+      "debugId": "f2702139357ad",
+      "ms": 852
+    },
+    {
+      "at": "2026-10-30T08:13:53.907Z",
+      "method": "POST",
+      "path": "/v2/checkout/orders/2GD52701974434709/capture",
+      "requestId": "41e489a7-1a7f-4b68-b499-8ef2ed175ebb",
+      "status": 201,
+      "debugId": "f785177fa18ab",
+      "ms": 1730
+    },
+    {
+      "at": "2026-10-30T08:13:54.985Z",
+      "method": "GET",
+      "path": "/v2/checkout/orders/2GD52701974434709",
+      "requestId": null,
+      "status": 200,
+      "debugId": "f399289d811ef",
+      "ms": 1077
+    },
+    {
+      "at": "2026-10-30T08:13:55.917Z",
+      "method": "POST",
+      "path": "/v2/checkout/orders/2GD52701974434709/capture",
+      "requestId": "41e489a7-1a7f-4b68-b499-8ef2ed175ebb",
+      "status": 201,
+      "debugId": "f39928999164f",
+      "ms": 931
+    },
+    {
+      "at": "2026-10-30T08:13:56.649Z",
+      "method": "POST",
+      "path": "/v2/checkout/orders/2GD52701974434709/capture",
+      "requestId": "14f979a8-8e7b-4fd9-93d8-983843656abb",
+      "status": 201,
+      "debugId": "f83060633ccdd",
+      "ms": 732
+    }
+  ]
+}

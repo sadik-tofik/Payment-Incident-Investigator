@@ -1,0 +1,185 @@
+{
+  "capturedAt": "2026-11-03T09:30:02.085Z",
+  "httpStatus": {
+    "wcOrder": 200,
+    "wcNotes": 200,
+    "wcGateways": 200,
+    "ppOrder": 200
+  },
+  "paypal": {
+    "id": "2VN877005K8093717",
+    "status": "COMPLETED",
+    "create_time": "2026-11-03T09:20:13Z",
+    "update_time": "2026-11-03T09:20:13Z",
+    "captureIds": [
+      "1P988895TL852750N"
+    ],
+    "captures": [
+      {
+        "id": "1P988895TL852750N",
+        "status": "COMPLETED",
+        "amount": {
+          "currency_code": "USD",
+          "value": "40.00"
+        },
+        "create_time": "2026-11-03T09:20:13Z"
+      }
+    ]
+  },
+  "woo": {
+    "id": 13,
+    "status": "processing",
+    "currency": "USD",
+    "total": "40.00",
+    "date_created_gmt": "2026-11-03T09:17:22",
+    "date_modified_gmt": "2026-11-03T09:20:20",
+    "date_paid_gmt": "2026-11-03T09:20:20",
+    "payment_method": "ppcp-gateway",
+    "payment_method_title": "PayPal",
+    "transaction_id": "1P988895TL852750N",
+    "meta_data_keys": [
+      "_shipping_hash",
+      "_coupons_hash",
+      "_fees_hash",
+      "_taxes_hash",
+      "is_vat_exempt",
+      "_wc_order_attribution_source_type",
+      "_wc_order_attribution_utm_source",
+      "_wc_order_attribution_session_entry",
+      "_wc_order_attribution_session_start_time",
+      "_wc_order_attribution_session_pages",
+      "_wc_order_attribution_session_count",
+      "_wc_order_attribution_user_agent",
+      "_wc_order_attribution_device_type",
+      "_debug_log_source_pending_deletion",
+      "_ppcp_paypal_order_id",
+      "_ppcp_paypal_intent",
+      "_ppcp_paypal_payment_mode",
+      "_ppcp_paypal_payment_source",
+      "_ppcp_paypal_payer_email",
+      "_ppcp_paypal_fees",
+      "PayPal Transaction Fee"
+    ]
+  },
+  "notes": [
+    {
+      "date_created_gmt": "2026-11-03T09:20:42",
+      "customer_note": false,
+      "note": "Email \"New order\" failed to send: Could not instantiate mail function.."
+    },
+    {
+      "date_created_gmt": "2026-11-03T09:20:42",
+      "customer_note": false,
+      "note": "Email \"Processing order\" failed to send: Could not instantiate mail function.."
+    },
+    {
+      "date_created_gmt": "2026-11-03T09:20:20",
+      "customer_note": false,
+      "note": "PayPal transaction ID: 1P988895TL852750N"
+    },
+    {
+      "date_created_gmt": "2026-11-03T09:20:20",
+      "customer_note": false,
+      "note": "Payment via PayPal ([email]) (1P988895TL852750N)."
+    }
+  ],
+  "gateways": [
+    {
+      "id": "ppcp-axo-gateway",
+      "title": "Debit & Credit Cards",
+      "enabled": false
+    },
+    {
+      "id": "bacs",
+      "title": "Direct bank transfer",
+      "enabled": false
+    },
+    {
+      "id": "cheque",
+      "title": "Check payments",
+      "enabled": false
+    },
+    {
+      "id": "cod",
+      "title": "Cash on delivery",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-gateway",
+      "title": "PayPal",
+      "enabled": true
+    },
+    {
+      "id": "ppcp-credit-card-gateway",
+      "title": "Debit & Credit Cards",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-bancontact",
+      "title": "Bancontact",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-blik",
+      "title": "Blik",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-eps",
+      "title": "EPS",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-ideal",
+      "title": "iDeal",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-mybank",
+      "title": "MyBank",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-p24",
+      "title": "Przelewy24",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-trustly",
+      "title": "Trustly",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-multibanco",
+      "title": "Multibanco",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-googlepay",
+      "title": "Google Pay",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-applepay",
+      "title": "Apple Pay",
+      "enabled": false
+    }
+  ],
+  "paypalOrderIdFoundAt": [
+    "$.order.meta_data[14].value"
+  ],
+  "captureIdsFoundAt": {
+    "1P988895TL852750N": [
+      "$.order.transaction_id",
+      "$.notes[2].note",
+      "$.notes[3].note"
+    ]
+  },
+  "answers": {
+    "Q1 PayPal order id readable via REST": true,
+    "Q2 capture id readable via REST": true,
+    "Q3 which status means paid": "processing",
+    "Q4 does date_paid exist": "2026-11-03T09:20:20",
+    "Q5 are there timestamped notes": 4
+  }
+}

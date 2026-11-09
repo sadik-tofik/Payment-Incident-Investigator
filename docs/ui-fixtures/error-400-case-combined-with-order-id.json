@@ -1,0 +1,10 @@
+{
+  "httpStatus": 400,
+  "body": {
+    "error": {
+      "code": "invalid_body",
+      "message": "caseId cannot be combined with paypalOrderId or localOrderId"
+    },
+    "auditId": null
+  }
+}

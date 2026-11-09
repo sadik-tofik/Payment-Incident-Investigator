@@ -1,0 +1,15 @@
+node_modules/
+.env
+.env.*
+!.env.example
+**/out/
+**/raw/
+*.log
+*.zip
+# local notes and credentials never belong in the repository
+draft*.txt
+*.local
+.DS_Store
+**/dist/
+ui/node_modules/
+ui/screenshots/*.tmp

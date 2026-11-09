@@ -1,0 +1,15 @@
+{
+  "httpStatus": 404,
+  "body": {
+    "error": {
+      "code": "paypal_order_not_found",
+      "message": "PayPal reported that no order with that ID exists in this environment."
+    },
+    "partial": {
+      "system": "paypal",
+      "reason": "HTTP 404 RESOURCE_NOT_FOUND",
+      "retrievedAt": "2026-11-04T00:00:00.000Z"
+    },
+    "auditId": "EXAMPLE"
+  }
+}

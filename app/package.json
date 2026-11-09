@@ -1,0 +1,9 @@
+{
+  "name": "payment-incident-investigator",
+  "version": "0.8.5",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic PayPal vs store order-state investigator (independent modules per SRS 14). Sandbox only.",
+  "scripts": { "test": "node --test test/*.test.js", "serve": "node ../scripts/serve.mjs" },
+  "engines": { "node": ">=20" }
+}

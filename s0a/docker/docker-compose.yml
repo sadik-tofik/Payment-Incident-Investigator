@@ -1,0 +1,29 @@
+# LOCAL, THROWAWAY WordPress + WooCommerce for spike S0-A. NOT TESTED by me (no Docker in my environment). Sandbox use only.
+# Binds to 127.0.0.1 only. Passwords below are for a disposable local database, never reuse them anywhere.
+services:
+  db:
+    image: mysql:8.0
+    environment: { MYSQL_DATABASE: wp, MYSQL_USER: wp, MYSQL_PASSWORD: wp-local-only, MYSQL_ROOT_PASSWORD: root-local-only }
+    volumes: [dbdata:/var/lib/mysql]
+  wordpress:
+    image: wordpress:php8.2-apache   # unpinned major: WooCommerce 11.x needs WordPress 7.0+ (a pinned 6.x image failed on the first real run)
+    depends_on: [db]
+    ports: ["127.0.0.1:8080:80"]
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: wp
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: wp-local-only
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_ENVIRONMENT_TYPE', 'local');
+        define('WP_HOME', 'http://localhost:8080');
+        define('WP_SITEURL', 'http://localhost:8080');
+    volumes: [wpdata:/var/www/html]
+  cli:
+    image: wordpress:cli-php8.2
+    depends_on: [wordpress]
+    user: "33:33"
+    environment: { WORDPRESS_DB_HOST: db, WORDPRESS_DB_NAME: wp, WORDPRESS_DB_USER: wp, WORDPRESS_DB_PASSWORD: wp-local-only }
+    volumes: [wpdata:/var/www/html]
+    profiles: ["tools"]
+volumes: { dbdata: {}, wpdata: {} }

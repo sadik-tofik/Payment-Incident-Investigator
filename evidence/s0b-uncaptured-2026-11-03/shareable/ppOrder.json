@@ -1,0 +1,63 @@
+{
+  "id": "4EL84369TC886673M",
+  "intent": "CAPTURE",
+  "status": "APPROVED",
+  "purchase_units": [
+    {
+      "reference_id": "default",
+      "amount": {
+        "currency_code": "USD",
+        "value": "20.00",
+        "breakdown": {
+          "item_total": {
+            "currency_code": "USD",
+            "value": "20.00"
+          },
+          "tax_total": {
+            "currency_code": "USD",
+            "value": "0.00"
+          }
+        }
+      },
+      "payee": {
+        "merchant_id": "WRTA6CQWDED24",
+        "display_data": {
+          "brand_name": "S0A Test Store"
+        }
+      },
+      "description": "",
+      "custom_id": "20",
+      "invoice_id": "dadceb-20",
+      "items": [
+        {
+          "unit_amount": {
+            "currency_code": "USD",
+            "value": "10.00"
+          },
+          "quantity": "2",
+          "description": "",
+          "url": "http://localhost:8080/product/s0a-test-product/",
+          "category": "DIGITAL_GOODS"
+        }
+      ]
+    }
+  ],
+  "create_time": "2026-11-03T13:11:46Z",
+  "links": [
+    {
+      "href": "https://api.sandbox.paypal.com/v2/checkout/orders/4EL84369TC886673M",
+      "rel": "self",
+      "method": "GET"
+    },
+    {
+      "href": "https://api.sandbox.paypal.com/v2/checkout/orders/4EL84369TC886673M",
+      "rel": "update",
+      "method": "PATCH"
+    },
+    {
+      "href": "https://api.sandbox.paypal.com/v2/checkout/orders/4EL84369TC886673M/capture",
+      "rel": "capture",
+      "method": "POST"
+    }
+  ]
+}

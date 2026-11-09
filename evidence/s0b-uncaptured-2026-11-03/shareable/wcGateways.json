@@ -1,0 +1,844 @@
+[
+  {
+    "id": "ppcp-axo-gateway",
+    "title": "Debit & Credit Cards",
+    "description": "Enter your email address above to continue.",
+    "order": "",
+    "enabled": false,
+    "method_title": "Fastlane Debit & Credit Cards",
+    "method_description": "Fastlane accelerates the checkout experience for guest shoppers and autofills their details so they can pay in seconds. When enabled, Fastlane is presented as the default payment method for guests.",
+    "method_supports": [
+      "products"
+    ],
+    "settings": [],
+    "needs_setup": false,
+    "post_install_scripts": [],
+    "settings_url": "http://localhost:8080/wp-admin/admin.php?page=wc-settings&tab=checkout&section=ppcp-axo-gateway",
+    "connection_url": null,
+    "setup_help_text": null,
+    "required_settings_keys": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways/ppcp-axo-gateway",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bacs",
+    "title": "Direct bank transfer",
+    "description": "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.",
+    "order": "",
+    "enabled": false,
+    "method_title": "Direct bank transfer",
+    "method_description": "Take payments in person via BACS. More commonly known as direct bank/wire transfer.",
+    "method_supports": [
+      "products"
+    ],
+    "settings": {
+      "title": {
+        "id": "title",
+        "label": "Title",
+        "description": "This controls the title which the user sees during checkout.",
+        "type": "safe_text",
+        "value": "Direct bank transfer",
+        "default": "Direct bank transfer",
+        "tip": "This controls the title which the user sees during checkout.",
+        "placeholder": ""
+      },
+      "instructions": {
+        "id": "instructions",
+        "label": "Instructions",
+        "description": "Instructions that will be added to the thank you page and emails.",
+        "type": "textarea",
+        "value": "",
+        "default": "",
+        "tip": "Instructions that will be added to the thank you page and emails.",
+        "placeholder": ""
+      }
+    },
+    "needs_setup": false,
+    "post_install_scripts": [],
+    "settings_url": "http://localhost:8080/wp-admin/admin.php?page=wc-settings&tab=checkout&path=/offline/bacs",
+    "connection_url": null,
+    "setup_help_text": null,
+    "required_settings_keys": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways/bacs",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways"
+        }
+      ]
+    }
+  },
+  {
+    "id": "cheque",
+    "title": "Check payments",
+    "description": "Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.",
+    "order": "",
+    "enabled": false,
+    "method_title": "Check payments",
+    "method_description": "Take payments in person via checks. This offline gateway can also be useful to test purchases.",
+    "method_supports": [
+      "products"
+    ],
+    "settings": {
+      "title": {
+        "id": "title",
+        "label": "Title",
+        "description": "This controls the title which the user sees during checkout.",
+        "type": "safe_text",
+        "value": "Check payments",
+        "default": "Check payments",
+        "tip": "This controls the title which the user sees during checkout.",
+        "placeholder": ""
+      },
+      "instructions": {
+        "id": "instructions",
+        "label": "Instructions",
+        "description": "Instructions that will be added to the thank you page and emails.",
+        "type": "textarea",
+        "value": "",
+        "default": "",
+        "tip": "Instructions that will be added to the thank you page and emails.",
+        "placeholder": ""
+      }
+    },
+    "needs_setup": false,
+    "post_install_scripts": [],
+    "settings_url": "http://localhost:8080/wp-admin/admin.php?page=wc-settings&tab=checkout&path=/offline/cheque",
+    "connection_url": null,
+    "setup_help_text": null,
+    "required_settings_keys": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways/cheque",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways"
+        }
+      ]
+    }
+  },
+  {
+    "id": "cod",
+    "title": "Cash on delivery",
+    "description": "Pay with cash upon delivery.",
+    "order": "",
+    "enabled": false,
+    "method_title": "Cash on delivery",
+    "method_description": "Let your shoppers pay upon delivery — by cash or other methods of payment.",
+    "method_supports": [
+      "products"
+    ],
+    "settings": {
+      "title": {
+        "id": "title",
+        "label": "Title",
+        "description": "Payment method description that the customer will see on your checkout.",
+        "type": "safe_text",
+        "value": "Cash on delivery",
+        "default": "Cash on delivery",
+        "tip": "Payment method description that the customer will see on your checkout.",
+        "placeholder": ""
+      },
+      "instructions": {
+        "id": "instructions",
+        "label": "Instructions",
+        "description": "Instructions that will be added to the thank you page.",
+        "type": "textarea",
+        "value": "Pay with cash upon delivery.",
+        "default": "Pay with cash upon delivery.",
+        "tip": "Instructions that will be added to the thank you page.",
+        "placeholder": ""
+      },
+      "enable_for_methods": {
+        "id": "enable_for_methods",
+        "label": "Enable for shipping methods",
+        "description": "If COD is only available for certain methods, set it up here. Leave blank to enable for all methods.",
+        "type": "multiselect",
+        "value": "",
+        "default": "",
+        "tip": "If COD is only available for certain methods, set it up here. Leave blank to enable for all methods.",
+        "placeholder": "",
+        "options": {
+          "Flat rate": {
+            "flat_rate": "Any &quot;Flat rate&quot; method"
+          },
+          "Free shipping": {
+            "free_shipping": "Any &quot;Free shipping&quot; method"
+          },
+          "Local pickup": {
+            "pickup_location": "Any &quot;Local pickup&quot; method"
+          }
+        }
+      },
+      "enable_for_virtual": {
+        "id": "enable_for_virtual",
+        "label": "Accept COD if the order is virtual",
+        "description": "",
+        "type": "checkbox",
+        "value": "yes",
+        "default": "yes",
+        "tip": "",
+        "placeholder": ""
+      }
+    },
+    "needs_setup": false,
+    "post_install_scripts": [],
+    "settings_url": "http://localhost:8080/wp-admin/admin.php?page=wc-settings&tab=checkout&path=/offline/cod",
+    "connection_url": null,
+    "setup_help_text": null,
+    "required_settings_keys": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways/cod",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ppcp-gateway",
+    "title": "PayPal",
+    "description": "Pay via PayPal.",
+    "order": "",
+    "enabled": true,
+    "method_title": "PayPal",
+    "method_description": "Pay via PayPal.",
+    "method_supports": [
+      "products",
+      "refunds",
+      "tokenization",
+      "add_payment_method"
+    ],
+    "settings": [],
+    "needs_setup": false,
+    "post_install_scripts": [],
+    "settings_url": "http://localhost:8080/wp-admin/admin.php?page=wc-settings&tab=checkout&section=ppcp-gateway",
+    "connection_url": null,
+    "setup_help_text": null,
+    "required_settings_keys": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways/ppcp-gateway",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ppcp-credit-card-gateway",
+    "title": "Debit & Credit Cards",
+    "description": "Pay with your credit card.",
+    "order": "",
+    "enabled": false,
+    "method_title": "Debit & Credit Cards",
+    "method_description": "Accept debit and credit cards, and local payment methods with PayPal’s latest solution.",
+    "method_supports": [
+      "products",
+      "refunds"
+    ],
+    "settings": [],
+    "needs_setup": false,
+    "post_install_scripts": [],
+    "settings_url": "http://localhost:8080/wp-admin/admin.php?page=wc-settings&tab=checkout&section=ppcp-credit-card-gateway",
+    "connection_url": null,
+    "setup_help_text": null,
+    "required_settings_keys": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways/ppcp-credit-card-gateway",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ppcp-bancontact",
+    "title": "Bancontact",
+    "description": "",
+    "order": "",
+    "enabled": false,
+    "method_title": "Bancontact (via PayPal)",
+    "method_description": "A popular and trusted electronic payment method in Belgium, used by Belgian customers with Bancontact cards issued by local banks. Transactions are processed in EUR.",
+    "method_supports": [
+      "refunds",
+      "products"
+    ],
+    "settings": {
+      "title": {
+        "id": "title",
+        "label": "Title",
+        "description": "This controls the title which the user sees during checkout.",
+        "type": "text",
+        "value": "Bancontact",
+        "default": "Bancontact",
+        "tip": "This controls the title which the user sees during checkout.",
+        "placeholder": ""
+      }
+    },
+    "needs_setup": false,
+    "post_install_scripts": [],
+    "settings_url": "http://localhost:8080/wp-admin/admin.php?page=wc-settings&tab=checkout&section=ppcp-bancontact",
+    "connection_url": null,
+    "setup_help_text": null,
+    "required_settings_keys": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways/ppcp-bancontact",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ppcp-blik",
+    "title": "Blik",
+    "description": "",
+    "order": "",
+    "enabled": false,
+    "method_title": "Blik (via PayPal)",
+    "method_description": "A widely used mobile payment method in Poland, allowing Polish customers to pay directly via their banking apps. Transactions are processed in PLN.",
+    "method_supports": [
+      "refunds",
+      "products"
+    ],
+    "settings": {
+      "title": {
+        "id": "title",
+        "label": "Title",
+        "description": "This controls the title which the user sees during checkout.",
+        "type": "text",
+        "value": "Blik",
+        "default": "Blik",
+        "tip": "This controls the title which the user sees during checkout.",
+        "placeholder": ""
+      }
+    },
+    "needs_setup": false,
+    "post_install_scripts": [],
+    "settings_url": "http://localhost:8080/wp-admin/admin.php?page=wc-settings&tab=checkout&section=ppcp-blik",
+    "connection_url": null,
+    "setup_help_text": null,
+    "required_settings_keys": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways/ppcp-blik",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ppcp-eps",
+    "title": "EPS",
+    "description": "",
+    "order": "",
+    "enabled": false,
+    "method_title": "EPS (via PayPal)",
+    "method_description": "An online payment method in Austria, enabling Austrian buyers to make secure payments directly through their bank accounts. Transactions are processed in EUR.",
+    "method_supports": [
+      "refunds",
+      "products"
+    ],
+    "settings": {
+      "title": {
+        "id": "title",
+        "label": "Title",
+        "description": "This controls the title which the user sees during checkout.",
+        "type": "text",
+        "value": "EPS",
+        "default": "EPS",
+        "tip": "This controls the title which the user sees during checkout.",
+        "placeholder": ""
+      }
+    },
+    "needs_setup": false,
+    "post_install_scripts": [],
+    "settings_url": "http://localhost:8080/wp-admin/admin.php?page=wc-settings&tab=checkout&section=ppcp-eps",
+    "connection_url": null,
+    "setup_help_text": null,
+    "required_settings_keys": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways/ppcp-eps",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ppcp-ideal",
+    "title": "iDeal",
+    "description": "",
+    "order": "",
+    "enabled": false,
+    "method_title": "iDeal (via PayPal)",
+    "method_description": "The most common payment method in the Netherlands, allowing Dutch buyers to pay directly through their preferred bank. Transactions are processed in EUR.",
+    "method_supports": [
+      "refunds",
+      "products"
+    ],
+    "settings": {
+      "title": {
+        "id": "title",
+        "label": "Title",
+        "description": "This controls the title which the user sees during checkout.",
+        "type": "text",
+        "value": "iDeal",
+        "default": "iDeal",
+        "tip": "This controls the title which the user sees during checkout.",
+        "placeholder": ""
+      }
+    },
+    "needs_setup": false,
+    "post_install_scripts": [],
+    "settings_url": "http://localhost:8080/wp-admin/admin.php?page=wc-settings&tab=checkout&section=ppcp-ideal",
+    "connection_url": null,
+    "setup_help_text": null,
+    "required_settings_keys": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways/ppcp-ideal",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ppcp-mybank",
+    "title": "MyBank",
+    "description": "",
+    "order": "",
+    "enabled": false,
+    "method_title": "MyBank (via PayPal)",
+    "method_description": "A European online banking payment solution primarily used in Italy, enabling customers to make secure bank transfers during checkout. Transactions are processed in EUR.",
+    "method_supports": [
+      "refunds",
+      "products"
+    ],
+    "settings": {
+      "title": {
+        "id": "title",
+        "label": "Title",
+        "description": "This controls the title which the user sees during checkout.",
+        "type": "text",
+        "value": "MyBank",
+        "default": "MyBank",
+        "tip": "This controls the title which the user sees during checkout.",
+        "placeholder": ""
+      }
+    },
+    "needs_setup": false,
+    "post_install_scripts": [],
+    "settings_url": "http://localhost:8080/wp-admin/admin.php?page=wc-settings&tab=checkout&section=ppcp-mybank",
+    "connection_url": null,
+    "setup_help_text": null,
+    "required_settings_keys": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways/ppcp-mybank",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ppcp-p24",
+    "title": "Przelewy24",
+    "description": "",
+    "order": "",
+    "enabled": false,
+    "method_title": "Przelewy24 (via PayPal)",
+    "method_description": "A popular online payment gateway in Poland, offering various payment options for Polish customers. Transactions can be processed in PLN or EUR.",
+    "method_supports": [
+      "refunds",
+      "products"
+    ],
+    "settings": {
+      "title": {
+        "id": "title",
+        "label": "Title",
+        "description": "This controls the title which the user sees during checkout.",
+        "type": "text",
+        "value": "Przelewy24",
+        "default": "Przelewy24",
+        "tip": "This controls the title which the user sees during checkout.",
+        "placeholder": ""
+      }
+    },
+    "needs_setup": false,
+    "post_install_scripts": [],
+    "settings_url": "http://localhost:8080/wp-admin/admin.php?page=wc-settings&tab=checkout&section=ppcp-p24",
+    "connection_url": null,
+    "setup_help_text": null,
+    "required_settings_keys": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways/ppcp-p24",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ppcp-trustly",
+    "title": "Trustly",
+    "description": "",
+    "order": "",
+    "enabled": false,
+    "method_title": "Trustly (via PayPal)",
+    "method_description": "A European payment method that allows buyers to make payments directly from their bank accounts, suitable for customers across multiple European countries. Supported currencies include EUR, DKK, SEK, GBP, and NOK.",
+    "method_supports": [
+      "refunds",
+      "products"
+    ],
+    "settings": {
+      "title": {
+        "id": "title",
+        "label": "Title",
+        "description": "This controls the title which the user sees during checkout.",
+        "type": "text",
+        "value": "Trustly",
+        "default": "Trustly",
+        "tip": "This controls the title which the user sees during checkout.",
+        "placeholder": ""
+      }
+    },
+    "needs_setup": false,
+    "post_install_scripts": [],
+    "settings_url": "http://localhost:8080/wp-admin/admin.php?page=wc-settings&tab=checkout&section=ppcp-trustly",
+    "connection_url": null,
+    "setup_help_text": null,
+    "required_settings_keys": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways/ppcp-trustly",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ppcp-multibanco",
+    "title": "Multibanco",
+    "description": "",
+    "order": "",
+    "enabled": false,
+    "method_title": "Multibanco (via PayPal)",
+    "method_description": "An online payment method in Portugal, enabling Portuguese buyers to make secure payments directly through their bank accounts. Transactions are processed in EUR.",
+    "method_supports": [
+      "refunds",
+      "products"
+    ],
+    "settings": {
+      "title": {
+        "id": "title",
+        "label": "Title",
+        "description": "This controls the title which the user sees during checkout.",
+        "type": "text",
+        "value": "Multibanco",
+        "default": "Multibanco",
+        "tip": "This controls the title which the user sees during checkout.",
+        "placeholder": ""
+      }
+    },
+    "needs_setup": false,
+    "post_install_scripts": [],
+    "settings_url": "http://localhost:8080/wp-admin/admin.php?page=wc-settings&tab=checkout&section=ppcp-multibanco",
+    "connection_url": null,
+    "setup_help_text": null,
+    "required_settings_keys": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways/ppcp-multibanco",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ppcp-googlepay",
+    "title": "Google Pay",
+    "description": "",
+    "order": "",
+    "enabled": false,
+    "method_title": "Google Pay (via PayPal) ",
+    "method_description": "The separate payment gateway with the Google Pay button. If disabled, the button is included in the PayPal gateway.",
+    "method_supports": [
+      "refunds",
+      "products"
+    ],
+    "settings": {
+      "title": {
+        "id": "title",
+        "label": "Title",
+        "description": "This controls the title which the user sees during checkout.",
+        "type": "text",
+        "value": "Google Pay",
+        "default": "Google Pay",
+        "tip": "This controls the title which the user sees during checkout.",
+        "placeholder": ""
+      }
+    },
+    "needs_setup": false,
+    "post_install_scripts": [],
+    "settings_url": "http://localhost:8080/wp-admin/admin.php?page=wc-settings&tab=checkout&section=ppcp-googlepay",
+    "connection_url": null,
+    "setup_help_text": null,
+    "required_settings_keys": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways/ppcp-googlepay",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ppcp-applepay",
+    "title": "Apple Pay",
+    "description": "",
+    "order": "",
+    "enabled": false,
+    "method_title": "Apple Pay (via PayPal) ",
+    "method_description": "Display Apple Pay as a standalone payment option instead of bundling it with PayPal.",
+    "method_supports": [
+      "refunds",
+      "products"
+    ],
+    "settings": {
+      "title": {
+        "id": "title",
+        "label": "Title",
+        "description": "This controls the title which the user sees during checkout.",
+        "type": "text",
+        "value": "Apple Pay",
+        "default": "Apple Pay",
+        "tip": "This controls the title which the user sees during checkout.",
+        "placeholder": ""
+      }
+    },
+    "needs_setup": false,
+    "post_install_scripts": [],
+    "settings_url": "http://localhost:8080/wp-admin/admin.php?page=wc-settings&tab=checkout&section=ppcp-applepay",
+    "connection_url": null,
+    "setup_help_text": null,
+    "required_settings_keys": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways/ppcp-applepay",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost:8080/wp-json/wc/v3/payment_gateways"
+        }
+      ]
+    }
+  }
+]

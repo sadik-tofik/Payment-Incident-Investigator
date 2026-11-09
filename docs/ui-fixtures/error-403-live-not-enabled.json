@@ -1,0 +1,10 @@
+{
+  "httpStatus": 403,
+  "body": {
+    "error": {
+      "code": "mode_not_enabled",
+      "message": "live mode is not enabled in this build"
+    },
+    "auditId": null
+  }
+}

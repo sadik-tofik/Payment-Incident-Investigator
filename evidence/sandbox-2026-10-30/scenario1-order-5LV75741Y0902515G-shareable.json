@@ -1,0 +1,81 @@
+{
+  "id": "5LV75741Y0902515G",
+  "intent": "CAPTURE",
+  "status": "COMPLETED",
+  "purchase_units": [
+    {
+      "reference_id": "inc1-[phone]",
+      "amount": {
+        "currency_code": "USD",
+        "value": "10.00"
+      },
+      "payee": {
+        "merchant_id": "WRTA6CQWDED24"
+      },
+      "custom_id": "inc1-[phone]",
+      "payments": {
+        "captures": [
+          {
+            "id": "2X454753W9630121J",
+            "status": "COMPLETED",
+            "amount": {
+              "currency_code": "USD",
+              "value": "10.00"
+            },
+            "final_capture": true,
+            "seller_protection": {
+              "status": "ELIGIBLE",
+              "dispute_categories": [
+                "ITEM_NOT_RECEIVED",
+                "UNAUTHORIZED_TRANSACTION"
+              ]
+            },
+            "seller_receivable_breakdown": {
+              "gross_amount": {
+                "currency_code": "USD",
+                "value": "10.00"
+              },
+              "paypal_fee": {
+                "currency_code": "USD",
+                "value": "0.84"
+              },
+              "net_amount": {
+                "currency_code": "USD",
+                "value": "9.16"
+              }
+            },
+            "custom_id": "inc1-[phone]",
+            "links": [
+              {
+                "href": "https://api.sandbox.paypal.com/v2/payments/captures/2X454753W9630121J",
+                "rel": "self",
+                "method": "GET"
+              },
+              {
+                "href": "https://api.sandbox.paypal.com/v2/payments/captures/2X454753W9630121J/refund",
+                "rel": "refund",
+                "method": "POST"
+              },
+              {
+                "href": "https://api.sandbox.paypal.com/v2/checkout/orders/5LV75741Y0902515G",
+                "rel": "up",
+                "method": "GET"
+              }
+            ],
+            "create_time": "2026-10-30T09:04:55Z",
+            "update_time": "2026-10-30T09:04:55Z"
+          }
+        ]
+      }
+    }
+  ],
+  "create_time": "2026-10-30T08:14:35Z",
+  "update_time": "2026-10-30T09:04:56Z",
+  "links": [
+    {
+      "href": "https://api.sandbox.paypal.com/v2/checkout/orders/5LV75741Y0902515G",
+      "rel": "self",
+      "method": "GET"
+    }
+  ]
+}

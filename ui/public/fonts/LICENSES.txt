@@ -1,0 +1,15 @@
+This directory contains self-hosted open-source fonts for Incident Investigator:
+
+1. Newsreader
+   Copyright 2020 The Newsreader Project Authors (https://github.com/productiontype/Newsreader)
+   Licensed under the SIL Open Font License, Version 1.1 (OFL-1.1)
+
+2. Hanken Grotesk
+   Copyright 2020 The Hanken Grotesk Project Authors (https://github.com/hanken/Hanken-Grotesk)
+   Licensed under the SIL Open Font License, Version 1.1 (OFL-1.1)
+
+3. IBM Plex Mono
+   Copyright 2017 IBM Corp. All rights reserved.
+   Licensed under the SIL Open Font License, Version 1.1 (OFL-1.1)
+
+All fonts are subset to Latin and self-hosted locally without runtime CDN dependencies.

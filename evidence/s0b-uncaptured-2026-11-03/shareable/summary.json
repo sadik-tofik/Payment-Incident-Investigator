@@ -1,0 +1,136 @@
+{
+  "capturedAt": "2026-11-03T13:24:32.211Z",
+  "httpStatus": {
+    "wcOrder": 200,
+    "wcNotes": 200,
+    "wcGateways": 200,
+    "ppOrder": 200
+  },
+  "paypal": {
+    "id": "4EL84369TC886673M",
+    "status": "APPROVED",
+    "create_time": "2026-11-03T13:11:46Z",
+    "captureIds": [],
+    "captures": []
+  },
+  "woo": {
+    "id": 20,
+    "status": "pending",
+    "currency": "USD",
+    "total": "20.00",
+    "date_created_gmt": "2026-11-03T13:11:33",
+    "date_modified_gmt": "2026-11-03T13:11:39",
+    "date_paid_gmt": null,
+    "payment_method": "ppcp-gateway",
+    "payment_method_title": "PayPal",
+    "transaction_id": "",
+    "meta_data_keys": [
+      "_shipping_hash",
+      "_coupons_hash",
+      "_fees_hash",
+      "_taxes_hash",
+      "is_vat_exempt",
+      "_wc_order_attribution_source_type",
+      "_wc_order_attribution_utm_source",
+      "_wc_order_attribution_session_entry",
+      "_wc_order_attribution_session_start_time",
+      "_wc_order_attribution_session_pages",
+      "_wc_order_attribution_session_count",
+      "_wc_order_attribution_user_agent",
+      "_wc_order_attribution_device_type",
+      "_debug_log_source_pending_deletion"
+    ]
+  },
+  "notes": [],
+  "gateways": [
+    {
+      "id": "ppcp-axo-gateway",
+      "title": "Debit & Credit Cards",
+      "enabled": false
+    },
+    {
+      "id": "bacs",
+      "title": "Direct bank transfer",
+      "enabled": false
+    },
+    {
+      "id": "cheque",
+      "title": "Check payments",
+      "enabled": false
+    },
+    {
+      "id": "cod",
+      "title": "Cash on delivery",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-gateway",
+      "title": "PayPal",
+      "enabled": true
+    },
+    {
+      "id": "ppcp-credit-card-gateway",
+      "title": "Debit & Credit Cards",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-bancontact",
+      "title": "Bancontact",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-blik",
+      "title": "Blik",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-eps",
+      "title": "EPS",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-ideal",
+      "title": "iDeal",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-mybank",
+      "title": "MyBank",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-p24",
+      "title": "Przelewy24",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-trustly",
+      "title": "Trustly",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-multibanco",
+      "title": "Multibanco",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-googlepay",
+      "title": "Google Pay",
+      "enabled": false
+    },
+    {
+      "id": "ppcp-applepay",
+      "title": "Apple Pay",
+      "enabled": false
+    }
+  ],
+  "paypalOrderIdFoundAt": [],
+  "captureIdsFoundAt": {},
+  "answers": {
+    "Q1 PayPal order id readable via REST": false,
+    "Q2 capture id readable via REST": false,
+    "Q3 which status means paid": "pending",
+    "Q4 does date_paid exist": null,
+    "Q5 are there timestamped notes": 0
+  }
+}

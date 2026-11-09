@@ -1,0 +1,126 @@
+{
+  "id": "6B462964L3390141D",
+  "intent": "CAPTURE",
+  "status": "COMPLETED",
+  "payment_source": {
+    "paypal": {
+      "account_id": "HBUKUJQ8J88UG",
+      "account_status": "VERIFIED",
+      "name": {
+        "given_name": "John",
+        "surname": "Doe"
+      },
+      "address": {
+        "address_line_1": "Winget, Addis ketema Addis Ababa",
+        "admin_area_2": "Addis Ababa",
+        "postal_code": "0000",
+        "country_code": "ET"
+      }
+    }
+  },
+  "purchase_units": [
+    {
+      "reference_id": "default",
+      "amount": {
+        "currency_code": "USD",
+        "value": "60.00",
+        "breakdown": {
+          "item_total": {
+            "currency_code": "USD",
+            "value": "60.00"
+          },
+          "tax_total": {
+            "currency_code": "USD",
+            "value": "0.00"
+          }
+        }
+      },
+      "payee": {
+        "merchant_id": "WRTA6CQWDED24",
+        "display_data": {
+          "brand_name": "S0A Test Store"
+        }
+      },
+      "description": "",
+      "custom_id": "17",
+      "invoice_id": "dadceb-17",
+      "items": [
+        {
+          "name": "S0A Test Product",
+          "unit_amount": {
+            "currency_code": "USD",
+            "value": "10.00"
+          },
+          "quantity": "6",
+          "description": "",
+          "url": "http://localhost:8080/product/s0a-test-product/",
+          "category": "DIGITAL_GOODS"
+        }
+      ],
+      "payments": {
+        "captures": [
+          {
+            "id": "5CK36668YX478504T",
+            "status": "COMPLETED",
+            "amount": {
+              "currency_code": "USD",
+              "value": "60.00"
+            },
+            "final_capture": true,
+            "seller_protection": {
+              "status": "ELIGIBLE",
+              "dispute_categories": [
+                "ITEM_NOT_RECEIVED",
+                "UNAUTHORIZED_TRANSACTION"
+              ]
+            },
+            "seller_receivable_breakdown": {
+              "gross_amount": {
+                "currency_code": "USD",
+                "value": "60.00"
+              },
+              "paypal_fee": {
+                "currency_code": "USD",
+                "value": "2.58"
+              },
+              "net_amount": {
+                "currency_code": "USD",
+                "value": "57.42"
+              }
+            },
+            "invoice_id": "dadceb-17",
+            "custom_id": "17",
+            "links": [
+              {
+                "href": "https://api.sandbox.paypal.com/v2/payments/captures/5CK36668YX478504T",
+                "rel": "self",
+                "method": "GET"
+              },
+              {
+                "href": "https://api.sandbox.paypal.com/v2/payments/captures/5CK36668YX478504T/refund",
+                "rel": "refund",
+                "method": "POST"
+              },
+              {
+                "href": "https://api.sandbox.paypal.com/v2/checkout/orders/6B462964L3390141D",
+                "rel": "up",
+                "method": "GET"
+              }
+            ],
+            "create_time": "2026-11-03T12:14:08Z",
+            "update_time": "2026-11-03T12:14:08Z"
+          }
+        ]
+      }
+    }
+  ],
+  "create_time": "2026-11-03T12:14:08Z",
+  "update_time": "2026-11-03T12:14:08Z",
+  "links": [
+    {
+      "href": "https://api.sandbox.paypal.com/v2/checkout/orders/6B462964L3390141D",
+      "rel": "self",
+      "method": "GET"
+    }
+  ]
+}

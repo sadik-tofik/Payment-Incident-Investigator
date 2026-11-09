@@ -1,0 +1,35 @@
+{
+  "httpStatus": 200,
+  "body": [
+    {
+      "id": "replay-order-13",
+      "title": "Completed order, both systems agree (S0-A order 13)",
+      "mode": "replay"
+    },
+    {
+      "id": "replay-order-17",
+      "title": "Completed order, both systems agree (S0-B order 17)",
+      "mode": "replay"
+    },
+    {
+      "id": "replay-order-20",
+      "title": "Approved on PayPal, no capture recorded; store lacks the PayPal order ID (S0-B order 20)",
+      "mode": "replay"
+    },
+    {
+      "id": "injected-captured-local-unpaid",
+      "title": "Injected: PayPal captured, store still pending",
+      "mode": "injected"
+    },
+    {
+      "id": "injected-amount-mismatch",
+      "title": "Injected: capture amount differs from store total",
+      "mode": "injected"
+    },
+    {
+      "id": "injected-multiple-captures",
+      "title": "Injected: two captures on one order",
+      "mode": "injected"
+    }
+  ]
+}

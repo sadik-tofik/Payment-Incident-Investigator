@@ -1,0 +1,15 @@
+{
+  "httpStatus": 502,
+  "body": {
+    "error": {
+      "code": "upstream_auth_rejected",
+      "message": "store rejected the configured credentials. The operator must fix the key; nothing was retried with broader permissions."
+    },
+    "partial": {
+      "system": "store",
+      "reason": "HTTP 401",
+      "retrievedAt": "2026-11-04T00:00:00.000Z"
+    },
+    "auditId": "EXAMPLE"
+  }
+}

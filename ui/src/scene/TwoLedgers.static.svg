@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#F4F1EA"/>
+  <!-- Plane A: PAYPAL ORDER -->
+  <g transform="translate(390, 100)">
+    <rect width="420" height="200" rx="6" fill="#FFFFFF" stroke="#D1CDC2" stroke-width="1.5"/>
+    <text x="24" y="36" fill="#1C1E21" font-size="13" font-family="monospace" font-weight="600" letter-spacing="0.08em">PAYPAL ORDER</text>
+    <line x1="24" y1="48" x2="396" y2="48" stroke="#E3E0D6" stroke-width="1"/>
+    
+    <text x="24" y="75" fill="#60646C" font-size="12" font-family="monospace">status</text>
+    <rect x="130" y="65" width="80" height="12" fill="none" stroke="#D1CDC2" stroke-width="1" rx="2"/>
+
+    <text x="24" y="105" fill="#60646C" font-size="12" font-family="monospace">amount</text>
+    <rect x="130" y="95" width="60" height="12" fill="none" stroke="#D1CDC2" stroke-width="1" rx="2"/>
+
+    <text x="24" y="135" fill="#60646C" font-size="12" font-family="monospace">currency</text>
+    <rect x="130" y="125" width="45" height="12" fill="none" stroke="#D1CDC2" stroke-width="1" rx="2"/>
+
+    <text x="24" y="165" fill="#60646C" font-size="12" font-family="monospace">observed at</text>
+    <rect x="130" y="155" width="110" height="12" fill="none" stroke="#D1CDC2" stroke-width="1" rx="2"/>
+
+    <text x="24" y="195" fill="#60646C" font-size="12" font-family="monospace">order id</text>
+    <rect x="130" y="185" width="90" height="12" fill="none" stroke="#D1CDC2" stroke-width="1" rx="2"/>
+  </g>
+
+  <!-- Connecting thread: Provisional link (State B) -->
+  <line x1="600" y1="300" x2="600" y2="380" stroke="#8F6200" stroke-width="2" stroke-dasharray="6,4"/>
+  <circle cx="600" cy="340" r="7" fill="#F4F1EA" stroke="#8F6200" stroke-width="1.5"/>
+  <path d="M 600 333 A 7 7 0 0 1 600 347 Z" fill="#8F6200"/>
+  <text x="620" y="344" fill="#8F6200" font-size="14" font-family="sans-serif" font-weight="600">Provisional: link inferred</text>
+
+  <!-- Plane B: STORE ORDER -->
+  <g transform="translate(390, 380)">
+    <rect width="420" height="200" rx="6" fill="#FFFFFF" stroke="#D1CDC2" stroke-width="1.5"/>
+    <text x="24" y="36" fill="#1C1E21" font-size="13" font-family="monospace" font-weight="600" letter-spacing="0.08em">STORE ORDER</text>
+    <line x1="24" y1="48" x2="396" y2="48" stroke="#E3E0D6" stroke-width="1"/>
+
+    <text x="24" y="75" fill="#60646C" font-size="12" font-family="monospace">status</text>
+    <rect x="130" y="65" width="95" height="12" fill="none" stroke="#D1CDC2" stroke-width="1" rx="2"/>
+
+    <text x="24" y="105" fill="#60646C" font-size="12" font-family="monospace">amount</text>
+    <rect x="130" y="95" width="60" height="12" fill="none" stroke="#D1CDC2" stroke-width="1" rx="2"/>
+
+    <text x="24" y="135" fill="#60646C" font-size="12" font-family="monospace">currency</text>
+    <rect x="130" y="125" width="45" height="12" fill="none" stroke="#D1CDC2" stroke-width="1" rx="2"/>
+
+    <text x="24" y="165" fill="#60646C" font-size="12" font-family="monospace">observed at</text>
+    <rect x="130" y="155" width="110" height="12" fill="none" stroke="#D1CDC2" stroke-width="1" rx="2"/>
+
+    <text x="24" y="195" fill="#60646C" font-size="12" font-family="monospace">order id</text>
+    <rect x="130" y="185" width="70" height="12" fill="none" stroke="#D1CDC2" stroke-width="1" rx="2"/>
+  </g>
+
+  <!-- Caption -->
+  <text x="600" y="610" text-anchor="middle" fill="#60646C" font-size="12" font-family="monospace" letter-spacing="0.08em">ILLUSTRATION OF THE IDEA. NOT DATA.</text>
+</svg>

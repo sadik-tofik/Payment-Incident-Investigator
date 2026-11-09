@@ -1,0 +1,11 @@
+{
+  "httpStatus": 504,
+  "body": {
+    "error": {
+      "code": "deadline_exceeded",
+      "message": "Investigation did not finish within the deadline."
+    },
+    "partial": null,
+    "auditId": "EXAMPLE"
+  }
+}

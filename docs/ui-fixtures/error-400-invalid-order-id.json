@@ -1,0 +1,10 @@
+{
+  "httpStatus": 400,
+  "body": {
+    "error": {
+      "code": "invalid_order_id",
+      "message": "PayPal order ID has an unexpected format"
+    },
+    "auditId": null
+  }
+}

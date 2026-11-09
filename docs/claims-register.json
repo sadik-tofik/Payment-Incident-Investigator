@@ -1,0 +1,86 @@
+{
+  "_about": "Machine-readable copy of the claim statuses in docs/06-EVIDENCE-SPEC.md section 10 (the authority). scripts/claims-audit.mjs fails if the two disagree, if a public file cites a claim that is not PROVEN, or if a public file uses a forbidden phrase without a negation. PROVEN here always means PROVEN *narrow*: use the wording in the Evidence Spec, not a broader one.",
+  "claims": {
+    "C-01": {
+      "status": "PARTIAL"
+    },
+    "C-02": {
+      "status": "PROVEN"
+    },
+    "C-03": {
+      "status": "PROVEN"
+    },
+    "C-04a": {
+      "status": "PARTIAL"
+    },
+    "C-04b": {
+      "status": "UNPROVEN"
+    },
+    "C-04": {
+      "status": "FORBIDDEN"
+    },
+    "C-05": {
+      "status": "UNPROVEN"
+    },
+    "C-06": {
+      "status": "FORBIDDEN"
+    },
+    "C-07": {
+      "status": "FORBIDDEN"
+    },
+    "C-08": {
+      "status": "FORBIDDEN"
+    },
+    "C-09": {
+      "status": "FORBIDDEN"
+    },
+    "C-10": {
+      "status": "PROVEN"
+    },
+    "C-11": {
+      "status": "PROVEN"
+    },
+    "C-12": {
+      "status": "PROVEN"
+    },
+    "C-13": {
+      "status": "PROVEN"
+    }
+  },
+  "publicPaths": [
+    "README.md",
+    "docs/public",
+    "docs/DEVPOST.md",
+    "docs/VIDEO-SCRIPT.md",
+    "ui"
+  ],
+  "publicFixtureDir": "docs/ui-fixtures",
+  "extraForbidden": [
+    "tamper-proof",
+    "tamper proof",
+    "production readiness",
+    "reconciles",
+    "recovers stuck",
+    "AI finds",
+    "100%",
+    "real-time",
+    "validated by"
+  ],
+  "requiredInReadme": [
+    "Demo Honesty Ledger",
+    "synthetic",
+    "AI explanations are off by default",
+    "with respect to PayPal and WooCommerce"
+  ],
+  "fixtureExceptions": [
+    {
+      "phrase": "never",
+      "file": null,
+      "match": "Capture is never automatic",
+      "reason": "Engine forbidden-action text; reviewer (4 Nov) decided to leave the engine's never/always strings alone. In Tier 1 no capture path exists, so the statement describes absence (C-12), not a guarantee. Revisit if Tier 3 is ever built."
+    }
+  ],
+  "draftPaths": [
+    "docs/drafts"
+  ]
+}

@@ -1,0 +1,25 @@
+Scenario 1 — Approved, Not Captured, Merchant Locally Cancelled
+
+Environment: PayPal Sandbox
+Original order ID: 5LV75741Y0902515G
+
+Timeline:
+- 08:14:36 UTC — Order created (HTTP 200)
+- 08:15:10 UTC — First order probe (HTTP 200)
+- 08:20:10 UTC — Second order probe (HTTP 200)
+- Later — Network timeout interrupted remaining scheduled probes
+- Recovery query — Existing order returned APPROVED (HTTP 200)
+- Delayed capture — HTTP 201
+- Final order status — COMPLETED
+- Capture ID — 2X454753W9630121J
+- Capture status — COMPLETED
+- Capture request ID — 5cb3e44c-ad34-4269-a4d4-8a23e2cf7767
+- PayPal debug ID — f544920968936
+
+Conclusion:
+PayPal accepted capture of the previously approved order after the
+merchant-side cancellation condition was simulated.
+
+Limitation:
+WooCommerce cancellation was simulated in the classifier. No actual
+WooCommerce order was created or cancelled in this experiment.

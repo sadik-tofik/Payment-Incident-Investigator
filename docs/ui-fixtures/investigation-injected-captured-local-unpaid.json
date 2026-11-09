@@ -1,0 +1,308 @@
+{
+  "httpStatus": 200,
+  "body": {
+    "id": "inv_EXAMPLE",
+    "createdAt": "2026-11-04T00:00:00.000Z",
+    "source": {
+      "mode": "injected",
+      "label": "injected (not a real merchant incident)"
+    },
+    "input": {
+      "paypalOrderId": "INJECTED0001",
+      "localOrderId": null
+    },
+    "identity": {
+      "state": "confirmed",
+      "basis": "both systems name each other",
+      "reason": null,
+      "requiredNotice": null
+    },
+    "needs": {},
+    "systems": {
+      "paypal": {
+        "status": "COMPLETED",
+        "retrievedAt": "2026-11-01T11:00:00Z",
+        "eventTime": null,
+        "timeKind": "observed",
+        "amount": "10.00",
+        "currency": "USD",
+        "captures": [
+          {
+            "id": "CAPINJ1",
+            "status": "COMPLETED",
+            "createTime": "2026-11-01T10:05:00Z"
+          }
+        ]
+      },
+      "store": {
+        "localOrderId": "501",
+        "status": "pending",
+        "normalizedStatus": "unpaid",
+        "retrievedAt": "2026-11-01T11:00:00Z",
+        "eventTime": null,
+        "timeKind": "observed",
+        "amount": "10.00",
+        "currency": "USD",
+        "holdsPayPalOrderId": true,
+        "pluginVersion": "4.2.0",
+        "pluginVersionSource": "operator_declared"
+      }
+    },
+    "decision": {
+      "decisionStatus": "rule_matched",
+      "verdict": "captured_local_unpaid",
+      "ruleRow": 7,
+      "reason": "capture completed; local order not paid",
+      "finding": null,
+      "divergencePoint": {
+        "kind": "observed",
+        "timeKind": "observed",
+        "time": "2026-11-01T11:00:00Z",
+        "statement": "disagreement observed at 2026-11-01T11:00:00Z",
+        "evidenceIds": [
+          "EV-0012",
+          "EV-0013"
+        ]
+      },
+      "stateFingerprint": "fad757149bd54f5d079bde4e7c6733f8eb797ddc6f266dc9db107b5d8644b7ad"
+    },
+    "evidence": [
+      {
+        "id": "EV-0001",
+        "source": "paypal",
+        "field": "paypalOrderId",
+        "value": "INJECTED0001",
+        "observedAt": "2026-11-01T11:00:00Z",
+        "eventTime": null,
+        "rawHash": "6db5f7956ed9f6837ba2b16035db95294ec8a50b542408840640f1c062dd2814"
+      },
+      {
+        "id": "EV-0002",
+        "source": "paypal",
+        "field": "purchaseUnitCount",
+        "value": 1,
+        "observedAt": "2026-11-01T11:00:00Z",
+        "eventTime": null,
+        "rawHash": "6db5f7956ed9f6837ba2b16035db95294ec8a50b542408840640f1c062dd2814"
+      },
+      {
+        "id": "EV-0003",
+        "source": "paypal",
+        "field": "customId",
+        "value": "501",
+        "observedAt": "2026-11-01T11:00:00Z",
+        "eventTime": null,
+        "rawHash": "6db5f7956ed9f6837ba2b16035db95294ec8a50b542408840640f1c062dd2814"
+      },
+      {
+        "id": "EV-0004",
+        "source": "paypal",
+        "field": "invoiceId",
+        "value": "inj-501",
+        "observedAt": "2026-11-01T11:00:00Z",
+        "eventTime": null,
+        "rawHash": "6db5f7956ed9f6837ba2b16035db95294ec8a50b542408840640f1c062dd2814"
+      },
+      {
+        "id": "EV-0005",
+        "source": "paypal",
+        "field": "unitAmount",
+        "value": "10.00:USD",
+        "observedAt": "2026-11-01T11:00:00Z",
+        "eventTime": null,
+        "rawHash": "6db5f7956ed9f6837ba2b16035db95294ec8a50b542408840640f1c062dd2814"
+      },
+      {
+        "id": "EV-0006",
+        "source": "store",
+        "field": "localOrderId",
+        "value": "501",
+        "observedAt": "2026-11-01T11:00:00Z",
+        "eventTime": null,
+        "rawHash": "4dec4517590f7682b51e7b5378516719dae2f1874b02cfc0b9788c11a18853da"
+      },
+      {
+        "id": "EV-0007",
+        "source": "store",
+        "field": "paypalOrderIdRef",
+        "value": "INJECTED0001",
+        "observedAt": "2026-11-01T11:00:00Z",
+        "eventTime": null,
+        "rawHash": "4dec4517590f7682b51e7b5378516719dae2f1874b02cfc0b9788c11a18853da"
+      },
+      {
+        "id": "EV-0008",
+        "source": "store",
+        "field": "paypalOrderIdRefCount",
+        "value": 1,
+        "observedAt": "2026-11-01T11:00:00Z",
+        "eventTime": null,
+        "rawHash": "4dec4517590f7682b51e7b5378516719dae2f1874b02cfc0b9788c11a18853da"
+      },
+      {
+        "id": "EV-0009",
+        "source": "store",
+        "field": "plugin",
+        "value": "woocommerce-paypal-payments@4.2.0",
+        "observedAt": "2026-11-01T11:00:00Z",
+        "eventTime": null,
+        "rawHash": "4dec4517590f7682b51e7b5378516719dae2f1874b02cfc0b9788c11a18853da"
+      },
+      {
+        "id": "EV-0010",
+        "source": "paypal",
+        "field": "orderStatus",
+        "value": "COMPLETED",
+        "observedAt": "2026-11-01T11:00:00Z",
+        "eventTime": null,
+        "rawHash": "6db5f7956ed9f6837ba2b16035db95294ec8a50b542408840640f1c062dd2814"
+      },
+      {
+        "id": "EV-0011",
+        "source": "paypal",
+        "field": "captureCount",
+        "value": 1,
+        "observedAt": "2026-11-01T11:00:00Z",
+        "eventTime": null,
+        "rawHash": "6db5f7956ed9f6837ba2b16035db95294ec8a50b542408840640f1c062dd2814"
+      },
+      {
+        "id": "EV-0012",
+        "source": "paypal",
+        "field": "captures[0]",
+        "value": "CAPINJ1:COMPLETED:10.00:USD",
+        "observedAt": "2026-11-01T11:00:00Z",
+        "eventTime": "2026-11-01T10:05:00Z",
+        "rawHash": "6db5f7956ed9f6837ba2b16035db95294ec8a50b542408840640f1c062dd2814"
+      },
+      {
+        "id": "EV-0013",
+        "source": "store",
+        "field": "normalizedStatus",
+        "value": "unpaid",
+        "observedAt": "2026-11-01T11:00:00Z",
+        "eventTime": null,
+        "rawHash": "4dec4517590f7682b51e7b5378516719dae2f1874b02cfc0b9788c11a18853da"
+      },
+      {
+        "id": "EV-0014",
+        "source": "store",
+        "field": "rawStatus",
+        "value": "pending",
+        "observedAt": "2026-11-01T11:00:00Z",
+        "eventTime": null,
+        "rawHash": "4dec4517590f7682b51e7b5378516719dae2f1874b02cfc0b9788c11a18853da"
+      },
+      {
+        "id": "EV-0015",
+        "source": "store",
+        "field": "total",
+        "value": "10.00:USD",
+        "observedAt": "2026-11-01T11:00:00Z",
+        "eventTime": null,
+        "rawHash": "4dec4517590f7682b51e7b5378516719dae2f1874b02cfc0b9788c11a18853da"
+      }
+    ],
+    "actions": {
+      "safe": [
+        {
+          "id": "ask_human_to_review",
+          "label": "A person should look at the evidence.",
+          "rule": "SAF-4",
+          "humanActionOnly": true
+        }
+      ],
+      "forbidden": [
+        {
+          "id": "refund",
+          "reason": "Refund workflows are out of scope (X4).",
+          "rule": "SAF-2"
+        },
+        {
+          "id": "auto_capture",
+          "reason": "Capture is never automatic (X2, X3).",
+          "rule": "SAF-1"
+        },
+        {
+          "id": "auto_repair",
+          "reason": "No repair is applied without a human approval (BR-05).",
+          "rule": "SAF-6"
+        },
+        {
+          "id": "capture",
+          "reason": "Capture is only ever allowed for approved_not_captured with the local order not cancelled.",
+          "rule": "SAF-1"
+        },
+        {
+          "id": "mark_local_paid",
+          "reason": "Only safe for captured_local_unpaid, and only when Tier 2 is built and enabled.",
+          "rule": "SAF-3"
+        }
+      ]
+    },
+    "integrity": {
+      "hashSpec": "sha256 of canonical-json-v1 (sorted keys, no whitespace)",
+      "paypal": "redacted copy of PayPal's response (not PayPal's original bytes)",
+      "store": "allow-listed LocalFacts object (not the original WooCommerce response)",
+      "establishesAuthenticity": false,
+      "note": "A hash identifies the stored copy. It does not prove PayPal or the store said it."
+    },
+    "explanation": {
+      "kind": "template",
+      "text": "PayPal shows one completed capture, but the store order is not marked paid. disagreement observed at 2026-11-01T11:00:00Z.",
+      "statements": [
+        {
+          "text": "PayPal shows one completed capture, but the store order is not marked paid.",
+          "evidenceIds": [
+            "EV-0001",
+            "EV-0002",
+            "EV-0003",
+            "EV-0004",
+            "EV-0005",
+            "EV-0006",
+            "EV-0007",
+            "EV-0008",
+            "EV-0009",
+            "EV-0010",
+            "EV-0011",
+            "EV-0012",
+            "EV-0013",
+            "EV-0014",
+            "EV-0015"
+          ]
+        },
+        {
+          "text": "disagreement observed at 2026-11-01T11:00:00Z.",
+          "evidenceIds": [
+            "EV-0012",
+            "EV-0013"
+          ]
+        }
+      ],
+      "citedEvidence": [
+        "EV-0001",
+        "EV-0002",
+        "EV-0003",
+        "EV-0004",
+        "EV-0005",
+        "EV-0006",
+        "EV-0007",
+        "EV-0008",
+        "EV-0009",
+        "EV-0010",
+        "EV-0011",
+        "EV-0012",
+        "EV-0013",
+        "EV-0014",
+        "EV-0015"
+      ],
+      "aiStatus": "not_configured",
+      "aiRejected": false
+    },
+    "limits": [
+      "Injected case: not a real merchant incident.",
+      "Shows how the engine decides; says nothing about how often such cases occur."
+    ],
+    "auditId": "EXAMPLE"
+  }
+}

@@ -1,0 +1,311 @@
+{
+  "httpStatus": 200,
+  "body": {
+    "id": "inv_EXAMPLE",
+    "createdAt": "2026-11-04T00:00:00.000Z",
+    "source": {
+      "mode": "replay",
+      "label": "recorded real sandbox capture"
+    },
+    "input": {
+      "paypalOrderId": "4EL84369TC886673M",
+      "localOrderId": null
+    },
+    "identity": {
+      "state": "provisional_association",
+      "basis": "PayPal-side identifiers and matching amount and currency only",
+      "reason": "store_has_no_paypal_order_id",
+      "requiredNotice": "PayPal order appears associated with WooCommerce order 20 based on PayPal-side identifiers and matching amount and currency. WooCommerce does not contain the PayPal order ID, so identity is not confirmed."
+    },
+    "needs": {},
+    "systems": {
+      "paypal": {
+        "status": "APPROVED",
+        "retrievedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "timeKind": "observed",
+        "amount": "20.00",
+        "currency": "USD",
+        "captures": []
+      },
+      "store": {
+        "localOrderId": "20",
+        "status": "pending",
+        "normalizedStatus": "unpaid",
+        "retrievedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "timeKind": "observed",
+        "amount": "20.00",
+        "currency": "USD",
+        "holdsPayPalOrderId": false,
+        "pluginVersion": "4.2.0",
+        "pluginVersionSource": "operator_declared"
+      }
+    },
+    "decision": {
+      "decisionStatus": "rule_matched",
+      "verdict": "approved_not_captured",
+      "ruleRow": 12,
+      "reason": "approved; nothing captured",
+      "finding": null,
+      "divergencePoint": {
+        "kind": "observed",
+        "timeKind": "observed",
+        "time": "2026-11-03T13:24:32.211Z",
+        "statement": "disagreement observed at 2026-11-03T13:24:32.211Z",
+        "evidenceIds": [
+          "EV-0010",
+          "EV-0011",
+          "EV-0012"
+        ]
+      },
+      "stateFingerprint": "b0faf1da1a0c829ffba8aaebdf1fda6975b8508fa23751b147f375bd7b44bf59"
+    },
+    "evidence": [
+      {
+        "id": "EV-0001",
+        "source": "paypal",
+        "field": "paypalOrderId",
+        "value": "4EL84369TC886673M",
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": "09d04dd56c6e170a8460fbaec5348e7066289516dca23fdc5982a35722821cc4"
+      },
+      {
+        "id": "EV-0002",
+        "source": "paypal",
+        "field": "purchaseUnitCount",
+        "value": 1,
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": "09d04dd56c6e170a8460fbaec5348e7066289516dca23fdc5982a35722821cc4"
+      },
+      {
+        "id": "EV-0003",
+        "source": "paypal",
+        "field": "customId",
+        "value": "20",
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": "09d04dd56c6e170a8460fbaec5348e7066289516dca23fdc5982a35722821cc4"
+      },
+      {
+        "id": "EV-0004",
+        "source": "paypal",
+        "field": "invoiceId",
+        "value": "dadceb-20",
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": "09d04dd56c6e170a8460fbaec5348e7066289516dca23fdc5982a35722821cc4"
+      },
+      {
+        "id": "EV-0005",
+        "source": "paypal",
+        "field": "unitAmount",
+        "value": "20.00:USD",
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": "09d04dd56c6e170a8460fbaec5348e7066289516dca23fdc5982a35722821cc4"
+      },
+      {
+        "id": "EV-0006",
+        "source": "store",
+        "field": "localOrderId",
+        "value": "20",
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": "82d95502daceb5c918e12622cb3815a9c1f96b25a681bf6c1e99eb37a3efeb7f"
+      },
+      {
+        "id": "EV-0007",
+        "source": "store",
+        "field": "paypalOrderIdRef",
+        "value": null,
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": "82d95502daceb5c918e12622cb3815a9c1f96b25a681bf6c1e99eb37a3efeb7f"
+      },
+      {
+        "id": "EV-0008",
+        "source": "store",
+        "field": "paypalOrderIdRefCount",
+        "value": 0,
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": "82d95502daceb5c918e12622cb3815a9c1f96b25a681bf6c1e99eb37a3efeb7f"
+      },
+      {
+        "id": "EV-0009",
+        "source": "store",
+        "field": "plugin",
+        "value": "woocommerce-paypal-payments@4.2.0",
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": "82d95502daceb5c918e12622cb3815a9c1f96b25a681bf6c1e99eb37a3efeb7f"
+      },
+      {
+        "id": "EV-0010",
+        "source": "paypal",
+        "field": "orderStatus",
+        "value": "APPROVED",
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": "09d04dd56c6e170a8460fbaec5348e7066289516dca23fdc5982a35722821cc4"
+      },
+      {
+        "id": "EV-0011",
+        "source": "paypal",
+        "field": "captureCount",
+        "value": 0,
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": "09d04dd56c6e170a8460fbaec5348e7066289516dca23fdc5982a35722821cc4"
+      },
+      {
+        "id": "EV-0012",
+        "source": "store",
+        "field": "normalizedStatus",
+        "value": "unpaid",
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": "82d95502daceb5c918e12622cb3815a9c1f96b25a681bf6c1e99eb37a3efeb7f"
+      },
+      {
+        "id": "EV-0013",
+        "source": "store",
+        "field": "rawStatus",
+        "value": "pending",
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": "82d95502daceb5c918e12622cb3815a9c1f96b25a681bf6c1e99eb37a3efeb7f"
+      },
+      {
+        "id": "EV-0014",
+        "source": "store",
+        "field": "total",
+        "value": "20.00:USD",
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": "82d95502daceb5c918e12622cb3815a9c1f96b25a681bf6c1e99eb37a3efeb7f"
+      },
+      {
+        "id": "EV-0015",
+        "source": "engine",
+        "field": "identityBasis",
+        "value": "provisional_association:order=20",
+        "observedAt": null,
+        "eventTime": null,
+        "rawHash": null
+      }
+    ],
+    "actions": {
+      "safe": [
+        {
+          "id": "ask_human_to_review",
+          "label": "A person should look at the evidence.",
+          "rule": "SAF-4",
+          "humanActionOnly": true
+        }
+      ],
+      "forbidden": [
+        {
+          "id": "refund",
+          "reason": "Refund workflows are out of scope (X4).",
+          "rule": "SAF-2"
+        },
+        {
+          "id": "auto_capture",
+          "reason": "Capture is never automatic (X2, X3).",
+          "rule": "SAF-1"
+        },
+        {
+          "id": "auto_repair",
+          "reason": "No repair is applied without a human approval (BR-05).",
+          "rule": "SAF-6"
+        },
+        {
+          "id": "capture",
+          "reason": "Capture is not enabled in this build (Tier 3 not built or not enabled).",
+          "rule": "SAF-1"
+        },
+        {
+          "id": "mark_local_paid",
+          "reason": "Only safe for captured_local_unpaid, and only when Tier 2 is built and enabled.",
+          "rule": "SAF-3"
+        }
+      ]
+    },
+    "integrity": {
+      "hashSpec": "sha256 of canonical-json-v1 (sorted keys, no whitespace)",
+      "paypal": "redacted copy of PayPal's response (not PayPal's original bytes)",
+      "store": "allow-listed LocalFacts object (not the original WooCommerce response)",
+      "establishesAuthenticity": false,
+      "note": "A hash identifies the stored copy. It does not prove PayPal or the store said it."
+    },
+    "explanation": {
+      "kind": "template",
+      "text": "PayPal shows the buyer approved the order, but no capture is recorded. The store order is not cancelled. PayPal order appears associated with WooCommerce order 20 based on PayPal-side identifiers and matching amount and currency. WooCommerce does not contain the PayPal order ID, so identity is not confirmed. disagreement observed at 2026-11-03T13:24:32.211Z.",
+      "statements": [
+        {
+          "text": "PayPal shows the buyer approved the order, but no capture is recorded. The store order is not cancelled.",
+          "evidenceIds": [
+            "EV-0001",
+            "EV-0002",
+            "EV-0003",
+            "EV-0004",
+            "EV-0005",
+            "EV-0006",
+            "EV-0007",
+            "EV-0008",
+            "EV-0009",
+            "EV-0010",
+            "EV-0011",
+            "EV-0012",
+            "EV-0013",
+            "EV-0014",
+            "EV-0015"
+          ]
+        },
+        {
+          "text": "PayPal order appears associated with WooCommerce order 20 based on PayPal-side identifiers and matching amount and currency. WooCommerce does not contain the PayPal order ID, so identity is not confirmed.",
+          "evidenceIds": [
+            "EV-0015"
+          ]
+        },
+        {
+          "text": "disagreement observed at 2026-11-03T13:24:32.211Z.",
+          "evidenceIds": [
+            "EV-0010",
+            "EV-0011",
+            "EV-0012"
+          ]
+        }
+      ],
+      "citedEvidence": [
+        "EV-0001",
+        "EV-0002",
+        "EV-0003",
+        "EV-0004",
+        "EV-0005",
+        "EV-0006",
+        "EV-0007",
+        "EV-0008",
+        "EV-0009",
+        "EV-0010",
+        "EV-0011",
+        "EV-0012",
+        "EV-0013",
+        "EV-0014",
+        "EV-0015"
+      ],
+      "aiStatus": "not_configured",
+      "aiRejected": false
+    },
+    "limits": [
+      "Recorded real sandbox capture: one plugin version (4.2.0), one interruption method, virtual product, USD.",
+      "Plugin version is operator-declared, not read from the store.",
+      "Retrieval time is the recording time, not now."
+    ],
+    "auditId": "EXAMPLE"
+  }
+}

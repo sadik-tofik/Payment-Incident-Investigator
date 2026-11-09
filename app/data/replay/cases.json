@@ -1,0 +1,8 @@
+{
+  "note": "Recorded real sandbox captures (S0-A/S0-B, 3 Nov 2026), scrubbed, hash-verified shareable files. retrievedAt = the capture time in each summary.json. Plugin version is operator-declared (PDR DR-7).",
+  "cases": [
+    { "id": "replay-order-13", "title": "Completed order, both systems agree (S0-A order 13)", "paypalFile": "s0a-ppOrder-13.json", "wooFile": "s0a-wcOrder-13.json", "retrievedAt": "2026-11-03T09:30:02.085Z", "invoicePrefix": null },
+    { "id": "replay-order-17", "title": "Completed order, both systems agree (S0-B order 17)", "paypalFile": "s0b-ppOrder-17.json", "wooFile": "s0b-wcOrder-17.json", "retrievedAt": "2026-11-03T12:20:57.642Z", "invoicePrefix": null },
+    { "id": "replay-order-20", "title": "Approved on PayPal, no capture recorded; store lacks the PayPal order ID (S0-B order 20)", "paypalFile": "s0b-ppOrder-20.json", "wooFile": "s0b-wcOrder-20.json", "retrievedAt": "2026-11-03T13:24:32.211Z", "invoicePrefix": "dadceb" }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "mock": false,
+  "results": [
+    {
+      "name": "scenario3_lost_create_response",
+      "pass": true,
+      "findings": [
+        "Same key returned the ORIGINAL order id: lost responses are recoverable if the key was persisted.",
+        "A new key created a DIFFERENT order: confirms the duplicate risk when the key is not persisted."
+      ],
+      "evidence": {
+        "requestId": "f3dbd718-5f2c-42da-8214-8d58ff92788d",
+        "originalOrderId": "9701162457099510B",
+        "retrySame": {
+          "httpStatus": 200,
+          "orderId": "9701162457099510B"
+        },
+        "retryNewKey": {
+          "httpStatus": 200,
+          "orderId": "8XA57839KH0376449"
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "at": "2026-10-30T08:11:03.880Z",
+      "method": "POST",
+      "path": "/v2/checkout/orders",
+      "requestId": "f3dbd718-5f2c-42da-8214-8d58ff92788d",
+      "status": 200,
+      "debugId": "ca528f26ddb43",
+      "ms": 1261
+    },
+    {
+      "at": "2026-10-30T08:11:04.542Z",
+      "method": "POST",
+      "path": "/v2/checkout/orders",
+      "requestId": "f3dbd718-5f2c-42da-8214-8d58ff92788d",
+      "status": 200,
+      "debugId": "ca528f275bcaf",
+      "ms": 661
+    },
+    {
+      "at": "2026-10-30T08:11:05.337Z",
+      "method": "POST",
+      "path": "/v2/checkout/orders",
+      "requestId": "cf283cf0-cc0e-4779-880e-ba0806ade885",
+      "status": 200,
+      "debugId": "ca528f279d992",
+      "ms": 795
+    }
+  ]
+}

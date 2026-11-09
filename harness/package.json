@@ -1,0 +1,15 @@
+{
+  "name": "paypal-incident-harness",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Sandbox validation harness for a PayPal payment-incident investigator (3 P0 scenarios).",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "scenario:1": "node run.js 1",
+    "scenario:2": "node run.js 2",
+    "scenario:3": "node run.js 3",
+    "dry-run": "node run.js all --mock"
+  },
+  "engines": { "node": ">=20" }
+}

@@ -1,0 +1,15 @@
+{
+  "httpStatus": 502,
+  "body": {
+    "error": {
+      "code": "upstream_unreachable",
+      "message": "paypal could not be read."
+    },
+    "partial": {
+      "system": "paypal",
+      "reason": "HTTP 500",
+      "retrievedAt": "2026-11-04T00:00:00.000Z"
+    },
+    "auditId": "EXAMPLE"
+  }
+}

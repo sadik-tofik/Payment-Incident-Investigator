@@ -1,0 +1,234 @@
+{
+  "httpStatus": 200,
+  "body": {
+    "id": "inv_EXAMPLE",
+    "createdAt": "2026-11-04T00:00:00.000Z",
+    "source": {
+      "mode": "replay",
+      "label": "recorded real sandbox capture"
+    },
+    "input": {
+      "paypalOrderId": null,
+      "localOrderId": "20"
+    },
+    "identity": {
+      "state": "unresolved",
+      "basis": "not established",
+      "reason": "store_has_no_paypal_order_id",
+      "requiredNotice": null
+    },
+    "needs": {
+      "paypalOrderId": true
+    },
+    "systems": {
+      "paypal": null,
+      "store": {
+        "localOrderId": "20",
+        "status": "pending",
+        "normalizedStatus": "unpaid",
+        "retrievedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "timeKind": "observed",
+        "amount": "20.00",
+        "currency": "USD",
+        "holdsPayPalOrderId": false,
+        "pluginVersion": "4.2.0",
+        "pluginVersionSource": "operator_declared"
+      }
+    },
+    "decision": {
+      "decisionStatus": "abstain",
+      "verdict": "unknown",
+      "ruleRow": 2,
+      "reason": "link_unresolved:store_has_no_paypal_order_id",
+      "finding": "Unable to link this WooCommerce order to a PayPal order using the available evidence.",
+      "divergencePoint": {
+        "kind": "abstain",
+        "reason": "link_unresolved"
+      },
+      "stateFingerprint": "4ccc30f3cd228c024ae6f3bbda056e6c51f124807d8be1c06ee8e98904e4fa17"
+    },
+    "evidence": [
+      {
+        "id": "EV-0001",
+        "source": "engine",
+        "field": "identity",
+        "value": "unresolved:store_has_no_paypal_order_id",
+        "observedAt": null,
+        "eventTime": null,
+        "rawHash": null
+      },
+      {
+        "id": "EV-0002",
+        "source": "paypal",
+        "field": "paypalOrderId",
+        "value": null,
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": null
+      },
+      {
+        "id": "EV-0003",
+        "source": "paypal",
+        "field": "purchaseUnitCount",
+        "value": null,
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": null
+      },
+      {
+        "id": "EV-0004",
+        "source": "paypal",
+        "field": "customId",
+        "value": null,
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": null
+      },
+      {
+        "id": "EV-0005",
+        "source": "paypal",
+        "field": "invoiceId",
+        "value": null,
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": null
+      },
+      {
+        "id": "EV-0006",
+        "source": "paypal",
+        "field": "unitAmount",
+        "value": null,
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": null
+      },
+      {
+        "id": "EV-0007",
+        "source": "store",
+        "field": "localOrderId",
+        "value": "20",
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": "82d95502daceb5c918e12622cb3815a9c1f96b25a681bf6c1e99eb37a3efeb7f"
+      },
+      {
+        "id": "EV-0008",
+        "source": "store",
+        "field": "paypalOrderIdRef",
+        "value": null,
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": "82d95502daceb5c918e12622cb3815a9c1f96b25a681bf6c1e99eb37a3efeb7f"
+      },
+      {
+        "id": "EV-0009",
+        "source": "store",
+        "field": "paypalOrderIdRefCount",
+        "value": 0,
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": "82d95502daceb5c918e12622cb3815a9c1f96b25a681bf6c1e99eb37a3efeb7f"
+      },
+      {
+        "id": "EV-0010",
+        "source": "store",
+        "field": "plugin",
+        "value": "woocommerce-paypal-payments@4.2.0",
+        "observedAt": "2026-11-03T13:24:32.211Z",
+        "eventTime": null,
+        "rawHash": "82d95502daceb5c918e12622cb3815a9c1f96b25a681bf6c1e99eb37a3efeb7f"
+      }
+    ],
+    "actions": {
+      "safe": [
+        {
+          "id": "ask_human_to_review",
+          "label": "A person should look at the evidence.",
+          "rule": "SAF-4",
+          "humanActionOnly": true
+        }
+      ],
+      "forbidden": [
+        {
+          "id": "refund",
+          "reason": "Refund workflows are out of scope (X4).",
+          "rule": "SAF-2"
+        },
+        {
+          "id": "auto_capture",
+          "reason": "Capture is never automatic (X2, X3).",
+          "rule": "SAF-1"
+        },
+        {
+          "id": "auto_repair",
+          "reason": "No repair is applied without a human approval (BR-05).",
+          "rule": "SAF-6"
+        },
+        {
+          "id": "capture",
+          "reason": "Capture is only ever allowed for approved_not_captured with the local order not cancelled.",
+          "rule": "SAF-1"
+        },
+        {
+          "id": "mark_local_paid",
+          "reason": "Only safe for captured_local_unpaid, and only when Tier 2 is built and enabled.",
+          "rule": "SAF-3"
+        },
+        {
+          "id": "any_repair",
+          "reason": "This verdict allows human review only.",
+          "rule": "SAF-4"
+        }
+      ]
+    },
+    "integrity": {
+      "hashSpec": "sha256 of canonical-json-v1 (sorted keys, no whitespace)",
+      "paypal": "redacted copy of PayPal's response (not PayPal's original bytes)",
+      "store": "allow-listed LocalFacts object (not the original WooCommerce response)",
+      "establishesAuthenticity": false,
+      "note": "A hash identifies the stored copy. It does not prove PayPal or the store said it."
+    },
+    "explanation": {
+      "kind": "template",
+      "text": "Unable to link this WooCommerce order to a PayPal order using the available evidence.",
+      "statements": [
+        {
+          "text": "Unable to link this WooCommerce order to a PayPal order using the available evidence.",
+          "evidenceIds": [
+            "EV-0001",
+            "EV-0002",
+            "EV-0003",
+            "EV-0004",
+            "EV-0005",
+            "EV-0006",
+            "EV-0007",
+            "EV-0008",
+            "EV-0009",
+            "EV-0010"
+          ]
+        }
+      ],
+      "citedEvidence": [
+        "EV-0001",
+        "EV-0002",
+        "EV-0003",
+        "EV-0004",
+        "EV-0005",
+        "EV-0006",
+        "EV-0007",
+        "EV-0008",
+        "EV-0009",
+        "EV-0010"
+      ],
+      "aiStatus": "not_configured",
+      "aiRejected": false
+    },
+    "limits": [
+      "Recorded real sandbox capture: one plugin version (4.2.0), one interruption method, virtual product, USD.",
+      "Plugin version is operator-declared, not read from the store.",
+      "Retrieval time is the recording time, not now."
+    ],
+    "auditId": "EXAMPLE"
+  }
+}

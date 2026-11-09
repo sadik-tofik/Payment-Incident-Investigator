@@ -1,0 +1,246 @@
+{
+  "httpStatus": 200,
+  "body": {
+    "id": "inv_EXAMPLE",
+    "createdAt": "2026-11-04T00:00:00.000Z",
+    "source": {
+      "mode": "replay",
+      "label": "recorded real sandbox capture"
+    },
+    "input": {
+      "paypalOrderId": "6B462964L3390141D",
+      "localOrderId": "13"
+    },
+    "identity": {
+      "state": "unresolved",
+      "basis": "not established",
+      "reason": "ids_disagree",
+      "requiredNotice": null
+    },
+    "needs": {},
+    "systems": {
+      "paypal": {
+        "status": "COMPLETED",
+        "retrievedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "timeKind": "observed",
+        "amount": "60.00",
+        "currency": "USD",
+        "captures": [
+          {
+            "id": "5CK36668YX478504T",
+            "status": "COMPLETED",
+            "createTime": "2026-11-03T12:14:08Z"
+          }
+        ]
+      },
+      "store": {
+        "localOrderId": "13",
+        "status": "processing",
+        "normalizedStatus": "paid",
+        "retrievedAt": "2026-11-03T09:30:02.085Z",
+        "eventTime": null,
+        "timeKind": "observed",
+        "amount": "40.00",
+        "currency": "USD",
+        "holdsPayPalOrderId": true,
+        "pluginVersion": "4.2.0",
+        "pluginVersionSource": "operator_declared"
+      }
+    },
+    "decision": {
+      "decisionStatus": "abstain",
+      "verdict": "unknown",
+      "ruleRow": 2,
+      "reason": "link_unresolved:ids_disagree",
+      "finding": "Unable to link this WooCommerce order to a PayPal order using the available evidence.",
+      "divergencePoint": {
+        "kind": "abstain",
+        "reason": "link_unresolved"
+      },
+      "stateFingerprint": "90ce20720e16744d5bd6a0611e721a01ba1de9f3b8ee41af8265ef7f3a82d806"
+    },
+    "evidence": [
+      {
+        "id": "EV-0001",
+        "source": "engine",
+        "field": "identity",
+        "value": "unresolved:ids_disagree",
+        "observedAt": null,
+        "eventTime": null,
+        "rawHash": null
+      },
+      {
+        "id": "EV-0002",
+        "source": "paypal",
+        "field": "paypalOrderId",
+        "value": "6B462964L3390141D",
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "rawHash": "94ef533fe3ce813f6c013fcbc5ac7b49628681f5a123efba07639ac300a221e8"
+      },
+      {
+        "id": "EV-0003",
+        "source": "paypal",
+        "field": "purchaseUnitCount",
+        "value": 1,
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "rawHash": "94ef533fe3ce813f6c013fcbc5ac7b49628681f5a123efba07639ac300a221e8"
+      },
+      {
+        "id": "EV-0004",
+        "source": "paypal",
+        "field": "customId",
+        "value": "17",
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "rawHash": "94ef533fe3ce813f6c013fcbc5ac7b49628681f5a123efba07639ac300a221e8"
+      },
+      {
+        "id": "EV-0005",
+        "source": "paypal",
+        "field": "invoiceId",
+        "value": "dadceb-17",
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "rawHash": "94ef533fe3ce813f6c013fcbc5ac7b49628681f5a123efba07639ac300a221e8"
+      },
+      {
+        "id": "EV-0006",
+        "source": "paypal",
+        "field": "unitAmount",
+        "value": "60.00:USD",
+        "observedAt": "2026-11-03T12:20:57.642Z",
+        "eventTime": null,
+        "rawHash": "94ef533fe3ce813f6c013fcbc5ac7b49628681f5a123efba07639ac300a221e8"
+      },
+      {
+        "id": "EV-0007",
+        "source": "store",
+        "field": "localOrderId",
+        "value": "13",
+        "observedAt": "2026-11-03T09:30:02.085Z",
+        "eventTime": null,
+        "rawHash": "34296859a25f06c5149f51a1aee865c52118736b35f69ecfdef789802933fa5a"
+      },
+      {
+        "id": "EV-0008",
+        "source": "store",
+        "field": "paypalOrderIdRef",
+        "value": "2VN877005K8093717",
+        "observedAt": "2026-11-03T09:30:02.085Z",
+        "eventTime": null,
+        "rawHash": "34296859a25f06c5149f51a1aee865c52118736b35f69ecfdef789802933fa5a"
+      },
+      {
+        "id": "EV-0009",
+        "source": "store",
+        "field": "paypalOrderIdRefCount",
+        "value": 1,
+        "observedAt": "2026-11-03T09:30:02.085Z",
+        "eventTime": null,
+        "rawHash": "34296859a25f06c5149f51a1aee865c52118736b35f69ecfdef789802933fa5a"
+      },
+      {
+        "id": "EV-0010",
+        "source": "store",
+        "field": "plugin",
+        "value": "woocommerce-paypal-payments@4.2.0",
+        "observedAt": "2026-11-03T09:30:02.085Z",
+        "eventTime": null,
+        "rawHash": "34296859a25f06c5149f51a1aee865c52118736b35f69ecfdef789802933fa5a"
+      }
+    ],
+    "actions": {
+      "safe": [
+        {
+          "id": "ask_human_to_review",
+          "label": "A person should look at the evidence.",
+          "rule": "SAF-4",
+          "humanActionOnly": true
+        }
+      ],
+      "forbidden": [
+        {
+          "id": "refund",
+          "reason": "Refund workflows are out of scope (X4).",
+          "rule": "SAF-2"
+        },
+        {
+          "id": "auto_capture",
+          "reason": "Capture is never automatic (X2, X3).",
+          "rule": "SAF-1"
+        },
+        {
+          "id": "auto_repair",
+          "reason": "No repair is applied without a human approval (BR-05).",
+          "rule": "SAF-6"
+        },
+        {
+          "id": "capture",
+          "reason": "Capture is only ever allowed for approved_not_captured with the local order not cancelled.",
+          "rule": "SAF-1"
+        },
+        {
+          "id": "mark_local_paid",
+          "reason": "Only safe for captured_local_unpaid, and only when Tier 2 is built and enabled.",
+          "rule": "SAF-3"
+        },
+        {
+          "id": "any_repair",
+          "reason": "This verdict allows human review only.",
+          "rule": "SAF-4"
+        }
+      ]
+    },
+    "integrity": {
+      "hashSpec": "sha256 of canonical-json-v1 (sorted keys, no whitespace)",
+      "paypal": "redacted copy of PayPal's response (not PayPal's original bytes)",
+      "store": "allow-listed LocalFacts object (not the original WooCommerce response)",
+      "establishesAuthenticity": false,
+      "note": "A hash identifies the stored copy. It does not prove PayPal or the store said it."
+    },
+    "explanation": {
+      "kind": "template",
+      "text": "Unable to link this WooCommerce order to a PayPal order using the available evidence.",
+      "statements": [
+        {
+          "text": "Unable to link this WooCommerce order to a PayPal order using the available evidence.",
+          "evidenceIds": [
+            "EV-0001",
+            "EV-0002",
+            "EV-0003",
+            "EV-0004",
+            "EV-0005",
+            "EV-0006",
+            "EV-0007",
+            "EV-0008",
+            "EV-0009",
+            "EV-0010"
+          ]
+        }
+      ],
+      "citedEvidence": [
+        "EV-0001",
+        "EV-0002",
+        "EV-0003",
+        "EV-0004",
+        "EV-0005",
+        "EV-0006",
+        "EV-0007",
+        "EV-0008",
+        "EV-0009",
+        "EV-0010"
+      ],
+      "aiStatus": "not_configured",
+      "aiRejected": false
+    },
+    "limits": [
+      "Recorded real sandbox capture: one plugin version (4.2.0), one interruption method, virtual product, USD.",
+      "Plugin version is operator-declared, not read from the store.",
+      "Retrieval time is the recording time, not now."
+    ],
+    "auditId": "EXAMPLE"
+  }
+}
