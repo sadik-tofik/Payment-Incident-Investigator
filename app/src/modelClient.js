@@ -4,7 +4,7 @@
 // No tool calling. No PayPal or store access. The key is never logged or included in an error message.
 import { buildModelInput } from "./explain.js";
 
-export const PROMPT_VERSION = "expl-1";
+export const PROMPT_VERSION = "expl-2";
 export const PROVIDERS = Object.freeze({
   gemini: { host: "generativelanguage.googleapis.com", envKey: "GEMINI_API_KEY" },
   nvidia: { host: "integrate.api.nvidia.com", envKey: "NVIDIA_API_KEY" },
@@ -18,14 +18,17 @@ RULES (all mandatory):
 4. If verdict is "unknown", set abstained to true and say the evidence is not sufficient.
 5. Do not say or imply a root cause, a guarantee, that something will complete, or that an action is safe or approved. Do not use the words: guarantee, prevent, eliminate, zero, autonomous, always, never, fully, instantly, root cause, caused by, production-ready.
 6. Suggested actions are for a human only; you may restate the listed safeActions and forbiddenActions in words, nothing else.
-7. Keep it under 120 words in total.`;
+7. Keep it under 120 words in total.
+8. Write every number as digits, never as a word (write "0 captures", not the word for zero). When a count is 0, you may say "no captures are recorded". Copy statuses and IDs exactly as they appear in the input.
+9. EVERY object in "statements", including the last one, must contain a non-empty "evidenceIds" array with real evidenceId values from the input. A statement without evidenceIds is discarded.
+Example output shape: {"summary":"...","abstained":false,"statements":[{"text":"...","evidenceIds":["EV-0010","EV-0011"]},{"text":"...","evidenceIds":["EV-0012"]}]}`;
 
 function parseJson(text) {
   const t = String(text ?? "").trim().replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "");
   return JSON.parse(t);
 }
 
-export function createModelFn({ provider, model, apiKey, fetchImpl = globalThis.fetch, maxCalls = 50, maxOutputTokens = 600, timeoutMs = 12000, baseUrl = null } = {}) {
+export function createModelFn({ provider, model, apiKey, fetchImpl = globalThis.fetch, maxCalls = 50, maxOutputTokens = 2048, timeoutMs = 25000, baseUrl = null } = {}) {
   const P = PROVIDERS[provider];
   if (!P) throw new Error("unknown_provider");
   if (!model || typeof model !== "string" || !/^[A-Za-z0-9._\-\/:]{2,80}$/.test(model)) throw new Error("invalid_model_id");
@@ -54,7 +57,8 @@ export function createModelFn({ provider, model, apiKey, fetchImpl = globalThis.
       const body = await res.json();
       const text = provider === "gemini" ? body?.candidates?.[0]?.content?.parts?.map((p) => p.text ?? "").join("") : body?.choices?.[0]?.message?.content;
       return parseJson(text);
-    } finally { clearTimeout(t); }
+    } catch (e) { if (e?.name === "AbortError" || /aborted/i.test(String(e?.message))) throw new Error("timeout"); throw e; }
+    finally { clearTimeout(t); }
   }
   fn.info = Object.freeze({ provider, model, promptVersion: PROMPT_VERSION });
   fn.callsUsed = () => calls;

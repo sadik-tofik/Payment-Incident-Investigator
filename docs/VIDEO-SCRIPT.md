@@ -17,7 +17,7 @@ On-screen rule: label REPLAY or INJECTED on every case, and show the limits text
 
 **1:45** Now an injected case. We created this one ourselves: a capture whose amount differs from the store total. The screen labels it injected.
 
-**2:10** Optional AI explanations exist in the code, but they are off in this demo and have been tested only with simulated responses, so everything you see here is the fixed-template explanation.
+**2:10** Optional AI explanations are off unless a key is configured; for this clip we switched them on for order 20, and the model's wording is shown under a label after passing the validator.
 
 **2:30** What it does not do: it does not fix orders or move money, it has only seen sandbox data from one setup, and no merchant has tested it.
 

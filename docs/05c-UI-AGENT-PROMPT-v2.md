@@ -42,7 +42,7 @@ These exist because the owner lost a past competition on a claim that could not 
 **What is real in this build (so you never imply more).**
 * Real: the decision engine, evidence handling, hashes, the audit chain, three recorded real sandbox orders replayed from files.
 * Injected: three cases written by the owner to exercise rules, always labelled.
-* Not built: live reads, fixing orders, capturing payments, refunds, approvals, merchant testing. AI explanations exist as an optional adapter that is off by default and has only been tested with simulated responses.
+* Not built: live reads, fixing orders, capturing payments, refunds, approvals, merchant testing. AI explanations are an optional adapter that is off by default; it was run against a real model on two recorded cases (see docs/evidence/AI-RUN-2026-11-11.md) and the UI must label any AI text as validated rewording.
 
 ---
 # PART 2. THE "LOOKS AI-GENERATED" LIST: WHAT TO DO INSTEAD

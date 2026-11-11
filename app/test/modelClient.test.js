@@ -66,7 +66,7 @@ test("model client: hard call budget, non-200 and invalid JSON all throw without
 });
 test("model client: a request that hangs is aborted at the timeout", async () => {
   const fn = createModelFn({ provider: "gemini", model: "m1", apiKey: KEY, timeoutMs: 20, fetchImpl: (u, init) => new Promise((_, rej) => init.signal.addEventListener("abort", () => rej(new Error("aborted")))) });
-  await assert.rejects(() => fn({}), /aborted/);
+  await assert.rejects(() => fn({}), /timeout/);
 });
 test("model client end to end: valid grounded text is accepted, model info is audited, the verdict is unchanged", async () => {
   const au = new AuditLog(join(mkdtempSync(join(tmpdir(), "ai-")), "a.jsonl"));

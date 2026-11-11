@@ -72,7 +72,7 @@ export function validateExplanation(expl, result) {
  * modelFn(structuredInput) -> Promise<explanation>. Timeout, error or rejection yields the template (SR-I-30).
  * Never throws. Never gives the model anything but buildModelInput(result).
  */
-export async function explain(result, modelFn = null, { timeoutMs = 15000 } = {}) {
+export async function explain(result, modelFn = null, { timeoutMs = 25000 } = {}) {
   const template = templateExplanation(result);
   if (!modelFn) return { ...template, aiStatus: "not_configured" };
   const started = Date.now();

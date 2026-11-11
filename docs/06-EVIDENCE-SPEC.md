@@ -150,7 +150,7 @@ A claim may be published only in the wording and status below. "Proof" means the
 | C-04a/b | capture retry statements | PARTIAL / UNPROVEN | needs harness v0.3 run; **not used by the Tier 1 product** (no capture exists) |
 | C-04 | "never captures twice" | **FORBIDDEN** | the product has no capture path in Tier 1; the claim is about nothing built |
 | C-05 | "Recovers stuck orders." | **UNPROVEN / not built** | Tier 2/3 gated |
-| C-06 | "AI finds the root cause." | **FORBIDDEN** | explanation is a template unless the operator switches the optional AI rephrasing on; AI text is validator-gated and cannot state a cause; no real model run is on record (CR-007) |
+| C-06 | "AI finds the root cause." | **FORBIDDEN** | explanation is a template unless the operator switches the optional AI rephrasing on; AI text is validator-gated and cannot state a cause; two real model runs on record (orders 17 and 20, CR-009) |
 | C-07, C-08, C-09 | speed, revenue loss, uniqueness | **FORBIDDEN** | no evidence collected |
 | C-10 | "Reads orders from a real WooCommerce store with PayPal Payments 4.2.0." | **PROVEN narrow** | 3 real orders, WooCommerce 11.2.1, plugin 4.2.0, sandbox. Not "works with WooCommerce". |
 | C-11 | "The audit log detects edits to entries (it does not detect a full rewrite)." | **PROVEN narrow** | tests: edit, removal, reorder detected; full rewrite passes (documented) |
