@@ -38,6 +38,13 @@ Verify a bundle offline: `node scripts/reproduce.mjs <bundle>`. This shows the d
 | Audit log | Detects inconsistent edits, deletions and reorders; a full consistent rewrite is not detected. No multi-process locking or crash recovery. |
 | Redaction | Best effort, not a privacy guarantee. |
 
+## How PayPal and AI are used
+**PayPal.** The PayPal Orders v2 API in the free sandbox. The reader class is GET-only with an allow-list and has no write method. We used it to record three real sandbox orders, kept in `evidence/`; replay mode re-reads those recordings. Live mode is not wired in this build: the HTTP API answers 403 for any live request. We also ran one sandbox test of PayPal-Request-Id behaviour (`evidence/`, claim C-03, one run).
+
+**WooCommerce.** The WooCommerce REST API with the PayPal Payments plugin 4.2.0, one local store, used to record the store side of those orders.
+
+**AI.** An optional layer that sends the engine's structured result to a Gemini model (`gemini-3.5-flash-lite` in our runs) and asks it to rephrase it in plain English. It is off unless the operator sets the environment variables below. The model does not decide the verdict or any action. Every sentence it writes must cite evidence IDs the engine produced and pass a validator; otherwise the fixed template is shown. In our log, 4 of 14 attempts were accepted and the others fell back to the template (rejected output, provider errors, timeouts or malformed output). See `docs/evidence/AI-RUN-2026-11-11.md`. This is a small record, not an evaluation.
+
 ## Layout
 - `docs/`: BRS, SRS, Threat Model, PDR, API contract, Evidence Spec, IVM, change requests. Start with `docs/00-INDEX.md`. `docs/07-IVM.md` is the requirement-to-test map and lists what is **not** implemented.
 - `app/`: engine, identity, orchestrator, HTTP server, replay data, tests.
