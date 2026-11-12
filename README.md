@@ -9,7 +9,7 @@ Given a PayPal order ID, a deterministic engine reads PayPal's order state and t
 ## Run it (Node 20+, no dependencies)
 
 ```
-cd app && npm test        # 90 tests, offline
+cd app && npm test        # 113 tests, offline
 cd app && npm run serve   # API on http://127.0.0.1:8787/api/v1
 ```
 Set `UI_ORIGIN=http://localhost:5173` (your UI's origin) to allow browser calls. Try it:
@@ -33,7 +33,7 @@ Verify a bundle offline: `node scripts/reproduce.mjs <bundle>`. This shows the d
 | `injected` cases (INJECTED0001-3) | **Synthetic.** Written by us to exercise rules. The "captured on PayPal, unpaid in the store" case has not been observed in a real store. |
 | Order 20 identity | **Provisional association** inferred from PayPal-side identifiers; the store did not hold the PayPal order ID. |
 | Verdicts | Decision-table rows matched, not proven diagnoses. Tests show the engine returns the labels we wrote (fixture parity); they do not measure accuracy. No merchant has validated that this solves a real problem. |
-| Explanations | Fixed templates by default. **AI explanations are off by default.** When switched on by the operator, a model only rephrases the engine's result; every sentence must cite engine evidence IDs and pass a validator, otherwise the template is shown. The validator is a guard on IDs, values and wording, not a proof that a sentence is true. The model does not decide the verdict or any action. Not yet run against a real model provider in this repository. |
+| Explanations | Fixed templates by default. **AI explanations are off by default.** When switched on by the operator, a model only rephrases the engine's result; every sentence must cite engine evidence IDs and pass a validator, otherwise the template is shown. The validator is a guard on IDs, values and wording, not a proof that a sentence is true. The model does not decide the verdict or any action. Tested against gemini-3.5-flash-lite on two recorded sandbox cases (see `docs/evidence/AI-RUN-2026-11-11.md`); not evaluated on wider cases. |
 | Event time | Disabled. Only when the disagreement was *observed* is reported, not when it began. |
 | Audit log | Detects inconsistent edits, deletions and reorders; a full consistent rewrite is not detected. No multi-process locking or crash recovery. |
 | Redaction | Best effort, not a privacy guarantee. |
@@ -54,4 +54,4 @@ Verify a bundle offline: `node scripts/reproduce.mjs <bundle>`. This shows the d
 - `s0a/`, `harness/`: earlier spike and experiment scripts.
 
 **License:** Apache-2.0 (see `LICENSE`).
-**Not done / not claimed:** live mode, any live AI-provider run in this repository, approval or write actions, public deployment, claims-audit script, merchant validation.
+**Not done / not claimed:** live mode, evaluation on wider cases, approval or write actions, public deployment, merchant validation.
